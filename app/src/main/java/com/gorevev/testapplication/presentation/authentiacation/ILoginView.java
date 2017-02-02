@@ -7,5 +7,8 @@ package com.gorevev.testapplication.presentation.authentiacation;
 public interface ILoginView {
 
     void loggedIn();
+
+    void loggedOut();
+
     void showError(String message);
 }

@@ -9,4 +9,6 @@ import com.gorevev.testapplication.presentation.common.IBasePresenter;
 public interface ILoginPresenter extends IBasePresenter<ILoginView, IAuthenticationRouter> {
 
     void login(String login, String password);
+
+    void logout();
 }

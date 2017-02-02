@@ -3,6 +3,7 @@ package com.gorevev.testapplication.presentation.authentiacation.injection;
 import android.content.Context;
 
 import com.gorevev.testapplication.domain.user.LoginInteractor;
+import com.gorevev.testapplication.domain.user.LogoutInteractor;
 import com.gorevev.testapplication.presentation.authentiacation.AuthenticationRouter;
 import com.gorevev.testapplication.presentation.authentiacation.IAuthenticationRouter;
 import com.gorevev.testapplication.presentation.authentiacation.ILoginPresenter;
@@ -34,7 +35,10 @@ public class AuthenticationModule {
 
     @Provides
     @ScreenScope
-    ILoginPresenter providesPresenter(IAuthenticationRouter router, LoginInteractor loginInteractor) {
-        return new LoginPresenter(router, loginInteractor);
+    ILoginPresenter providesPresenter(IAuthenticationRouter router,
+                                      LoginInteractor loginInteractor,
+                                      LogoutInteractor logoutInteractor) {
+
+        return new LoginPresenter(router, loginInteractor, logoutInteractor);
     }
 }

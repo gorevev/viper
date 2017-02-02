@@ -6,8 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import okhttp3.Headers;
 import okhttp3.Interceptor;
+import okhttp3.Request;
 import okhttp3.Response;
 
 /**
@@ -29,11 +29,12 @@ public class HeadersInterceptor implements Interceptor {
         if (headers.size() == 0)
             return chain.proceed(chain.request());
 
-        Headers.Builder builder = new Headers.Builder();
+        Request.Builder builder = chain.request().newBuilder();
         for (IHeader header : headers) {
-            builder.add(header.getName(), header.getValue());
+            if (header.getValue() != null)
+                builder.addHeader(header.getName(), header.getValue());
         }
 
-        return chain.proceed(chain.request().newBuilder().headers(builder.build()).build());
+        return chain.proceed(builder.build());
     }
 }

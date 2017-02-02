@@ -49,6 +49,11 @@ public class LoginFragment extends BaseFragment implements ILoginView {
     }
 
     @Override
+    public void loggedOut() {
+        Toast.makeText(getActivity(), "Logged out", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
     public void showError(String message) {
         Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
     }
@@ -56,5 +61,10 @@ public class LoginFragment extends BaseFragment implements ILoginView {
     @OnClick(R.id.button_login)
     public void onLogin() {
         presenter.login(login.getText().toString(), password.getText().toString());
+    }
+
+    @OnClick(R.id.button_logout)
+    public void onLogout() {
+        presenter.logout();
     }
 }

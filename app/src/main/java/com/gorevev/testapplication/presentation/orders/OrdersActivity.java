@@ -1,4 +1,4 @@
-package com.gorevev.testapplication.presentation.routes;
+package com.gorevev.testapplication.presentation.orders;
 
 import android.os.Bundle;
 
@@ -11,13 +11,13 @@ import com.gorevev.testapplication.presentation.common.Layout;
  */
 
 @Layout(R.layout.activity_base)
-public class RoutesListActivity extends BaseActivity {
+public class OrdersActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         if (getSupportFragmentManager().getBackStackEntryCount() == 0)
-            addBackStack(new RoutesListFragment());
+            addBackStack(new OrdersFragment());
     }
 }

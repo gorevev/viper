@@ -1,4 +1,4 @@
-package com.gorevev.testapplication.presentation.routes;
+package com.gorevev.testapplication.presentation.orders;
 
 import com.gorevev.testapplication.presentation.common.BasePresenter;
 
@@ -6,7 +6,7 @@ import com.gorevev.testapplication.presentation.common.BasePresenter;
  * Created by e.gorev on 01.02.2017.
  */
 
-public class RoutesListPresenter extends BasePresenter<IRoutesListView, IRoutesListRouter> implements IRoutesListPresenter {
+public class OrdersPresenter extends BasePresenter<IOrdersView, IOrdersRouter> implements IOrdersPresenter {
 
     @Override
     public void onStart() {

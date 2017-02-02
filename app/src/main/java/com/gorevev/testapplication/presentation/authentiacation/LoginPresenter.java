@@ -2,9 +2,7 @@ package com.gorevev.testapplication.presentation.authentiacation;
 
 import com.gorevev.testapplication.domain.user.LoginInteractor;
 import com.gorevev.testapplication.presentation.common.BasePresenter;
-import com.gorevev.testapplication.domain.user.entity.LoginParams;
-
-import javax.inject.Inject;
+import com.gorevev.testapplication.domain.user.entities.LoginParams;
 
 /**
  * Created by e.gorev on 30.01.2017.

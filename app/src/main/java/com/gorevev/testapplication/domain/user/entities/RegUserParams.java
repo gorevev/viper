@@ -1,4 +1,4 @@
-package com.gorevev.testapplication.domain.user.entity;
+package com.gorevev.testapplication.domain.user.entities;
 
 /**
  * Created by Ginko on 04.12.2016.

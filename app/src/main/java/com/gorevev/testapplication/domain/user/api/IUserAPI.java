@@ -1,8 +1,8 @@
 package com.gorevev.testapplication.domain.user.api;
 
-import com.gorevev.testapplication.domain.user.entity.LoginParams;
-import com.gorevev.testapplication.domain.user.entity.RegUserParams;
-import com.gorevev.testapplication.domain.user.entity.User;
+import com.gorevev.testapplication.domain.user.entities.LoginParams;
+import com.gorevev.testapplication.domain.user.entities.RegUserParams;
+import com.gorevev.testapplication.domain.user.entities.User;
 
 import retrofit2.http.Body;
 import retrofit2.http.POST;

@@ -1,4 +1,4 @@
-package com.gorevev.testapplication.presentation.routes;
+package com.gorevev.testapplication.presentation.orders;
 
 import android.support.annotation.NonNull;
 
@@ -14,11 +14,11 @@ import javax.inject.Inject;
  * Created by e.gorev on 30.01.2017.
  */
 
-@Layout(R.layout.fragment_routes)
-public class RoutesListFragment extends BaseFragment {
+@Layout(R.layout.fragment_orders)
+public class OrdersFragment extends BaseFragment {
 
     @Inject
-    IRoutesListPresenter presenter;
+    IOrdersPresenter presenter;
 
     @NonNull
     @Override

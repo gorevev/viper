@@ -6,7 +6,7 @@ package com.gorevev.testapplication.infrastructure.repository;
 
 public interface IRepository {
 
-    void put(Object object, String key) throws RepositoryException;
+    void put(String key, Object object) throws RepositoryException;
 
     <T> T get(String key, Class<T> cls);
 }

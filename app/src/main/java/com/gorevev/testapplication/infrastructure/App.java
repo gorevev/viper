@@ -5,9 +5,9 @@ import android.app.Application;
 import com.gorevev.testapplication.presentation.authentiacation.LoginFragment;
 import com.gorevev.testapplication.presentation.authentiacation.injection.AuthenticationComponent;
 import com.gorevev.testapplication.presentation.authentiacation.injection.AuthenticationModule;
-import com.gorevev.testapplication.presentation.routes.RoutesListFragment;
-import com.gorevev.testapplication.presentation.routes.injection.RoutesListComponent;
-import com.gorevev.testapplication.presentation.routes.injection.RoutesListModule;
+import com.gorevev.testapplication.presentation.orders.OrdersFragment;
+import com.gorevev.testapplication.presentation.orders.injection.OrdersComponent;
+import com.gorevev.testapplication.presentation.orders.injection.OrdersModule;
 import com.gorevev.testapplication.presentation.splash.SplashFragment;
 import com.gorevev.testapplication.presentation.splash.injection.SplashComponent;
 import com.gorevev.testapplication.presentation.splash.injection.SplashModule;
@@ -26,7 +26,7 @@ public class App extends Application {
     private AppComponent appComponent;
     private SplashComponent splashComponent;
     private AuthenticationComponent authenticationComponent;
-    private RoutesListComponent routesListComponent;
+    private OrdersComponent routesListComponent;
 
     public static App getInstance() {
         return instance;
@@ -63,10 +63,10 @@ public class App extends Application {
         return authenticationComponent;
     }
 
-    public RoutesListComponent getRoutesListComponent(RoutesListFragment fragment) {
+    public OrdersComponent getRoutesListComponent(OrdersFragment fragment) {
 
         if (routesListComponent == null)
-            routesListComponent = appComponent.plus(new RoutesListModule(fragment));
+            routesListComponent = appComponent.plus(new OrdersModule(fragment));
 
         routesListComponent.inject(fragment);
 

@@ -1,4 +1,4 @@
-package com.gorevev.testapplication.domain.user.entity;
+package com.gorevev.testapplication.domain.user.entities;
 
 import com.google.gson.annotations.SerializedName;
 

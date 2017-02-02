@@ -1,4 +1,4 @@
-package com.gorevev.testapplication.infrastructure.network.headers;
+package com.gorevev.testapplication.infrastructure.network;
 
 /**
  * Created by e.gorev on 02.02.2017.

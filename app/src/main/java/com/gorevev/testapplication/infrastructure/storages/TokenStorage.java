@@ -1,6 +1,7 @@
-package com.gorevev.testapplication.infrastructure.repository.storages;
+package com.gorevev.testapplication.infrastructure.storages;
 
 import com.gorevev.testapplication.infrastructure.repository.IRepository;
+import com.gorevev.testapplication.infrastructure.repository.IStorage;
 import com.gorevev.testapplication.infrastructure.repository.RepositoryException;
 
 import javax.inject.Inject;

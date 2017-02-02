@@ -1,7 +1,7 @@
 package com.gorevev.testapplication.infrastructure.injection;
 
 import com.gorevev.testapplication.infrastructure.network.HeadersInterceptor;
-import com.gorevev.testapplication.infrastructure.network.headers.AuthorizationHeader;
+import com.gorevev.testapplication.infrastructure.headers.AuthorizationHeader;
 
 import javax.inject.Singleton;
 

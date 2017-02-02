@@ -1,7 +1,5 @@
 package com.gorevev.testapplication.infrastructure.network;
 
-import com.gorevev.testapplication.infrastructure.network.headers.IHeader;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +13,7 @@ import okhttp3.Response;
  */
 public class HeadersInterceptor implements Interceptor {
 
-    List<IHeader> headers = new ArrayList<>();
+    private List<IHeader> headers = new ArrayList<>();
 
     public HeadersInterceptor(IHeader... headers) {
 

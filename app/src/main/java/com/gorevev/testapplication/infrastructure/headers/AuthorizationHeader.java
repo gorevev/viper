@@ -1,7 +1,8 @@
-package com.gorevev.testapplication.infrastructure.network.headers;
+package com.gorevev.testapplication.infrastructure.headers;
 
-import com.gorevev.testapplication.infrastructure.repository.storages.IStorage;
-import com.gorevev.testapplication.infrastructure.repository.storages.TokenStorage;
+import com.gorevev.testapplication.infrastructure.network.IHeader;
+import com.gorevev.testapplication.infrastructure.repository.IStorage;
+import com.gorevev.testapplication.infrastructure.storages.TokenStorage;
 
 import javax.inject.Inject;
 
@@ -13,7 +14,7 @@ public class AuthorizationHeader implements IHeader {
 
     private static final String HEADER_NAME = "Authorization";
 
-    IStorage<String> storage;
+    private IStorage<String> storage;
 
     @Inject
     public AuthorizationHeader(TokenStorage storage) {

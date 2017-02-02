@@ -3,9 +3,8 @@ package com.gorevev.testapplication.domain.user;
 import android.util.Log;
 
 import com.gorevev.testapplication.domain.common.Interactor;
-import com.gorevev.testapplication.infrastructure.repository.IRepository;
 import com.gorevev.testapplication.infrastructure.repository.RepositoryException;
-import com.gorevev.testapplication.infrastructure.repository.storages.TokenStorage;
+import com.gorevev.testapplication.infrastructure.storages.TokenStorage;
 import com.gorevev.testapplication.presentation.common.injection.DomainModule;
 import com.gorevev.testapplication.domain.user.api.IUserAPI;
 import com.gorevev.testapplication.domain.user.entities.LoginParams;
@@ -16,9 +15,6 @@ import javax.inject.Named;
 
 import rx.Observable;
 import rx.Scheduler;
-import rx.functions.Func0;
-import rx.functions.Func1;
-import rx.observables.BlockingObservable;
 
 /**
  * Created by e.gorev on 30.01.2017.

@@ -1,4 +1,4 @@
-package com.gorevev.testapplication.infrastructure.repository.storages;
+package com.gorevev.testapplication.infrastructure.repository;
 
 import com.gorevev.testapplication.infrastructure.repository.RepositoryException;
 

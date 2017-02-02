@@ -1,7 +1,7 @@
 package com.gorevev.testapplication.domain.order.api;
 
 import com.gorevev.testapplication.domain.order.entities.OrdersList;
-import com.gorevev.testapplication.infrastructure.network.Response;
+import com.gorevev.testapplication.domain.common.entities.Response;
 
 import retrofit2.http.GET;
 import rx.Observable;

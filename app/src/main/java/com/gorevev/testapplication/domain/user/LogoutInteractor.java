@@ -4,7 +4,7 @@ import android.util.Log;
 
 import com.gorevev.testapplication.domain.common.Interactor;
 import com.gorevev.testapplication.infrastructure.repository.RepositoryException;
-import com.gorevev.testapplication.infrastructure.repository.storages.TokenStorage;
+import com.gorevev.testapplication.infrastructure.storages.TokenStorage;
 import com.gorevev.testapplication.presentation.common.injection.DomainModule;
 
 import javax.inject.Inject;

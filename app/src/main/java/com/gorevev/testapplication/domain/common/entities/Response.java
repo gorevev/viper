@@ -1,4 +1,4 @@
-package com.gorevev.testapplication.infrastructure.network;
+package com.gorevev.testapplication.domain.common.entities;
 
 import java.util.List;
 

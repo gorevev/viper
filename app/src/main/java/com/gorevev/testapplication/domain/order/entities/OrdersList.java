@@ -12,4 +12,12 @@ public class OrdersList {
 
     @SerializedName("order")
     private List<Order> list;
+
+    public List<Order> getList() {
+        return list;
+    }
+
+    public void setList(List<Order> list) {
+        this.list = list;
+    }
 }

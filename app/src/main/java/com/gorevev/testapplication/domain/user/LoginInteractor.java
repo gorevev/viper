@@ -3,12 +3,13 @@ package com.gorevev.testapplication.domain.user;
 import android.util.Log;
 
 import com.gorevev.testapplication.domain.common.Interactor;
+import com.gorevev.testapplication.domain.common.entities.Response;
 import com.gorevev.testapplication.infrastructure.repository.RepositoryException;
 import com.gorevev.testapplication.infrastructure.storages.TokenStorage;
 import com.gorevev.testapplication.presentation.common.injection.DomainModule;
 import com.gorevev.testapplication.domain.user.api.IUserAPI;
 import com.gorevev.testapplication.domain.user.entities.LoginParams;
-import com.gorevev.testapplication.domain.user.entities.User;
+import com.gorevev.testapplication.domain.user.entities.Token;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -20,7 +21,7 @@ import rx.Scheduler;
  * Created by e.gorev on 30.01.2017.
  */
 
-public class LoginInteractor extends Interactor<User, LoginParams> {
+public class LoginInteractor extends Interactor<Response<Token>, LoginParams> {
 
     private static final String TAG = LoginInteractor.class.getName();
 
@@ -38,17 +39,17 @@ public class LoginInteractor extends Interactor<User, LoginParams> {
     }
 
     @Override
-    protected Observable<User> buildObservable(LoginParams parameters) {
+    protected Observable<Response<Token>> buildObservable(LoginParams parameters) {
         return service.login(parameters)
-                .map(user -> {
+                .map(response -> {
 
                     try {
-                        storage.put(user.getData().token);
+                        storage.put(response.getData().getToken());
                     } catch (RepositoryException e) {
                         Log.e(TAG, e.getMessage());
                     }
 
-                    return user;
+                    return response;
                 });
     }
 }

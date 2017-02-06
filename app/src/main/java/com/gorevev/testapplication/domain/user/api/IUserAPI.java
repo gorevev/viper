@@ -1,8 +1,9 @@
 package com.gorevev.testapplication.domain.user.api;
 
+import com.gorevev.testapplication.domain.common.entities.Response;
 import com.gorevev.testapplication.domain.user.entities.LoginParams;
 import com.gorevev.testapplication.domain.user.entities.RegUserParams;
-import com.gorevev.testapplication.domain.user.entities.User;
+import com.gorevev.testapplication.domain.user.entities.Token;
 
 import retrofit2.http.Body;
 import retrofit2.http.POST;
@@ -15,8 +16,8 @@ import rx.Observable;
 public interface IUserAPI {
 
     @POST("register")
-    Observable<User> registerUser(@Body RegUserParams parameters);
+    Observable<Response<Token>> registerUser(@Body RegUserParams parameters);
 
     @POST("login")
-    Observable<User> login(@Body LoginParams parameters);
+    Observable<Response<Token>> login(@Body LoginParams parameters);
 }

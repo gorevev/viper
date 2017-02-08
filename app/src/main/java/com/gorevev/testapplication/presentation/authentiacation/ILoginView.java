@@ -6,6 +6,10 @@ package com.gorevev.testapplication.presentation.authentiacation;
 
 public interface ILoginView {
 
+    void showProgress();
+
+    void hideProgress();
+
     void loggedIn();
 
     void loggedOut();

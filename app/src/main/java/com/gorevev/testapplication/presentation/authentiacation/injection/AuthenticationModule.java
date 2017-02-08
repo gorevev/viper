@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.gorevev.testapplication.domain.user.LoginInteractor;
 import com.gorevev.testapplication.domain.user.LogoutInteractor;
+import com.gorevev.testapplication.infrastructure.CurrentActivityProvider;
 import com.gorevev.testapplication.presentation.authentiacation.AuthenticationRouter;
 import com.gorevev.testapplication.presentation.authentiacation.IAuthenticationRouter;
 import com.gorevev.testapplication.presentation.authentiacation.ILoginPresenter;
@@ -29,8 +30,8 @@ public class AuthenticationModule {
 
     @Provides
     @ScreenScope
-    IAuthenticationRouter providesRouter() {
-        return new AuthenticationRouter(fragment.getActivity());
+    IAuthenticationRouter providesRouter(CurrentActivityProvider provider) {
+        return new AuthenticationRouter(provider);
     }
 
     @Provides

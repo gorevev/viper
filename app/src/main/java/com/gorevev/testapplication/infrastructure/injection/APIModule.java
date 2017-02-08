@@ -1,5 +1,6 @@
 package com.gorevev.testapplication.infrastructure.injection;
 
+import com.gorevev.testapplication.domain.order.api.IOrderAPI;
 import com.gorevev.testapplication.domain.user.api.IUserAPI;
 
 import javax.inject.Singleton;
@@ -19,5 +20,11 @@ public class APIModule {
     @Singleton
     IUserAPI providesUserAPI(Retrofit retrofit) {
         return retrofit.create(IUserAPI.class);
+    }
+
+    @Provides
+    @Singleton
+    IOrderAPI providesOrderAPI(Retrofit retrofit) {
+        return retrofit.create(IOrderAPI.class);
     }
 }

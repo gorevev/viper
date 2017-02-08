@@ -7,4 +7,10 @@ import com.gorevev.testapplication.presentation.common.IBasePresenter;
  */
 
 public interface IOrdersPresenter extends IBasePresenter<IOrdersView, IOrdersRouter> {
+
+    void loadOrders();
+
+    void refreshOrders();
+
+    void onShowOrder(int id);
 }

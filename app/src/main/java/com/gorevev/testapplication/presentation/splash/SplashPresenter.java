@@ -17,29 +17,6 @@ public class SplashPresenter extends BasePresenter<ISplashView, ISplashRouter> i
 
         getView().finishInitialization();
         getRouter().openLogin();
-        /*String json = "{\n" +
-                "  \"legalStatus\": 2,\n" +
-                "  \"isCarrier\": true,\n" +
-                "  \"lastName\": \"testLast\",\n" +
-                "  \"firstName\": \"testFirst\",\n" +
-                "  \"secondName\": \"testSecond\",\n" +
-                "  \"email\": \"string@mail.ru\",\n" +
-                "  \"phone\": \"89132564565\",\n" +
-                "  \"timezone\": \"Asia/Novosibirsk\",\n" +
-                "  \"password\": \"123456\",\n" +
-                "  \"acceptPersonalData\": true,\n" +
-                "  \"acceptOffer\": true\n" +
-                "}";
-
-        RegUserParams params = new Gson().fromJson(json, RegUserParams.class);
-
-        userSession.registerGuest(params)
-                .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                        user -> getView().finishInitialization(),
-                        throwable -> getView().showError(throwable.getMessage())
-                );*/
     }
 
     @Override

@@ -1,8 +1,9 @@
 package com.gorevev.testapplication.presentation.authentiacation;
 
-import android.content.Context;
 import android.content.Intent;
 
+import com.gorevev.testapplication.infrastructure.CurrentActivityProvider;
+import com.gorevev.testapplication.presentation.common.BaseFragment;
 import com.gorevev.testapplication.presentation.orders.OrdersActivity;
 
 /**
@@ -11,15 +12,18 @@ import com.gorevev.testapplication.presentation.orders.OrdersActivity;
 
 public class AuthenticationRouter implements IAuthenticationRouter {
 
-    Context context;
+    CurrentActivityProvider provider;
 
-    public AuthenticationRouter(Context context) {
-        this.context = context;
+    public AuthenticationRouter(CurrentActivityProvider provider) {
+        this.provider = provider;
     }
 
     @Override
-    public void showRoutesList() {
-        Intent intent = new Intent(context, OrdersActivity.class);
-        context.startActivity(intent);
+    public void showOrders() {
+
+        provider.getCurrentActivity().finish();
+
+        Intent intent = new Intent(provider.getCurrentActivity(), OrdersActivity.class);
+        provider.getCurrentActivity().startActivity(intent);
     }
 }

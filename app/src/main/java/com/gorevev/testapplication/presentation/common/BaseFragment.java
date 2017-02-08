@@ -56,7 +56,6 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onDestroyView() {
         unbinder.unbind();
-        getPresenter().setRouter(null);
         super.onDestroyView();
     }
 

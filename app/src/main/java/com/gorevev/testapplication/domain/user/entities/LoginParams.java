@@ -14,6 +14,12 @@ public class LoginParams {
     @SerializedName("LoginForm[password]")
     private String password;
 
+    public LoginParams(String login, String password) {
+
+        this.login = login;
+        this.password = password;
+    }
+
     public String getLogin() {
         return login;
     }

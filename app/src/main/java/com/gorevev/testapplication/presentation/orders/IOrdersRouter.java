@@ -5,4 +5,6 @@ package com.gorevev.testapplication.presentation.orders;
  */
 
 public interface IOrdersRouter {
+
+    void onShowOrder(int id);
 }

@@ -1,5 +1,6 @@
 package com.gorevev.testapplication.presentation.orders.injection;
 
+import com.gorevev.testapplication.presentation.common.injection.DomainModule;
 import com.gorevev.testapplication.presentation.common.injection.ScreenScope;
 import com.gorevev.testapplication.presentation.orders.OrdersFragment;
 
@@ -10,7 +11,7 @@ import dagger.Subcomponent;
  */
 
 @ScreenScope
-@Subcomponent(modules = {OrdersModule.class})
+@Subcomponent(modules = {OrdersModule.class, DomainModule.class})
 public interface OrdersComponent {
 
     void inject(OrdersFragment fragment);

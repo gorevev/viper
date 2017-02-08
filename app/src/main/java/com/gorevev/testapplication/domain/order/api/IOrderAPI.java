@@ -3,7 +3,10 @@ package com.gorevev.testapplication.domain.order.api;
 import com.gorevev.testapplication.domain.order.entities.OrdersList;
 import com.gorevev.testapplication.domain.common.entities.Response;
 
+import java.util.Map;
+
 import retrofit2.http.GET;
+import retrofit2.http.QueryMap;
 import rx.Observable;
 
 /**
@@ -13,5 +16,5 @@ import rx.Observable;
 public interface IOrderAPI {
 
     @GET("order")
-    Observable<Response<OrdersList>> getOrders();
+    Observable<Response<OrdersList>> getOrders(@QueryMap Map<String, String> parameters);
 }

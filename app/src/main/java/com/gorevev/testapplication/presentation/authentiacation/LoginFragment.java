@@ -1,7 +1,10 @@
 package com.gorevev.testapplication.presentation.authentiacation;
 
 import android.support.annotation.NonNull;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.gorevev.testapplication.R;
@@ -31,6 +34,15 @@ public class LoginFragment extends BaseFragment implements ILoginView {
     @BindView(R.id.password)
     EditText password;
 
+    @BindView(R.id.progress)
+    LinearLayout progress;
+
+    @BindView(R.id.button_login)
+    Button buttonLogin;
+
+    @BindView(R.id.button_logout)
+    Button buttonLogout;
+
     @NonNull
     @Override
     protected IBasePresenter getPresenter() {
@@ -43,9 +55,22 @@ public class LoginFragment extends BaseFragment implements ILoginView {
     }
 
     @Override
+    public void showProgress() {
+        buttonLogin.setVisibility(View.GONE);
+        buttonLogout.setVisibility(View.GONE);
+        progress.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideProgress() {
+        buttonLogin.setVisibility(View.VISIBLE);
+        buttonLogout.setVisibility(View.VISIBLE);
+        progress.setVisibility(View.GONE);
+    }
+
+    @Override
     public void loggedIn() {
         Toast.makeText(getActivity(), "Logged in", Toast.LENGTH_LONG).show();
-        getActivity().finish();
     }
 
     @Override

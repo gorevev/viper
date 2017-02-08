@@ -1,6 +1,9 @@
 package com.gorevev.testapplication.infrastructure.injection;
 
+import android.app.Application;
 import android.content.Context;
+
+import com.gorevev.testapplication.infrastructure.CurrentActivityProvider;
 
 import javax.inject.Singleton;
 
@@ -14,15 +17,21 @@ import dagger.Provides;
 @Module
 public class AppModule {
 
-    Context context;
+    private Application application;
 
-    public AppModule(Context context) {
-        this.context = context;
+    public AppModule(Application application) {
+        this.application = application;
     }
 
     @Provides
     @Singleton
     public Context providesContext() {
-        return context;
+        return application;
+    }
+
+    @Provides
+    @Singleton
+    public CurrentActivityProvider providesCurrentActivityProvider() {
+        return new CurrentActivityProvider(application);
     }
 }

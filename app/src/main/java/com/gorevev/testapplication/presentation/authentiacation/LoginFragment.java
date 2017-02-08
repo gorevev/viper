@@ -50,17 +50,6 @@ public class LoginFragment extends BaseFragment implements ILoginView {
     @BindView(R.id.button_logout)
     Button buttonLogout;
 
-    @NonNull
-    @Override
-    protected IBasePresenter getPresenter() {
-        return presenter;
-    }
-
-    @Override
-    protected void inject() {
-        App.getInstance().getAuthenticationComponent(this);
-    }
-
     @Override
     public void showProgress() {
         buttonLogin.setVisibility(View.GONE);

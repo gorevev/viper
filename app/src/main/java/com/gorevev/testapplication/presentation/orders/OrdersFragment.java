@@ -1,15 +1,14 @@
 package com.gorevev.testapplication.presentation.orders;
 
-import com.arellomobile.mvp.presenter.InjectPresenter;
-import com.arellomobile.mvp.presenter.ProvidePresenter;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
 
+import com.arellomobile.mvp.presenter.InjectPresenter;
+import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.gorevev.testapplication.R;
 import com.gorevev.testapplication.domain.order.entities.Order;
 import com.gorevev.testapplication.infrastructure.App;
@@ -17,8 +16,6 @@ import com.gorevev.testapplication.presentation.common.BaseFragment;
 import com.gorevev.testapplication.presentation.common.Layout;
 
 import java.util.List;
-
-import javax.inject.Inject;
 
 import butterknife.BindView;
 
@@ -45,11 +42,7 @@ public class OrdersFragment extends BaseFragment implements
 
     @ProvidePresenter
     OrdersPresenter providePresenter() {
-        return App.getInstance().getRoutesListComponent(this).ordersPresenter();
-    }
-
-    @Override
-    protected void inject() {
+        return App.getInstance().getOrdersComponent(this).ordersPresenter();
     }
 
     @Override

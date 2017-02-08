@@ -34,7 +34,6 @@ public abstract class BaseFragment extends MvpAppCompatFragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        inject();
         super.onCreate(savedInstanceState);
     }
 
@@ -44,7 +43,7 @@ public abstract class BaseFragment extends MvpAppCompatFragment {
         super.onDestroyView();
     }
 
-
-
-    protected abstract void inject();
+    protected String name() {
+        return getClass().getSimpleName();
+    }
 }

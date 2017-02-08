@@ -27,16 +27,9 @@ public class OrdersPresenter extends BasePresenter<IOrdersView, IOrdersRouter> i
     }
 
     @Override
-    public void onStart() {
-        if (page == 0)
-            loadOrders();
-        else
-            getView().setOrders(orders.getOrders(), orders.mayBeMore());
-    }
-
-    @Override
-    public void onStop() {
-
+    protected void onFirstViewAttach() {
+        super.onFirstViewAttach();
+        loadOrders();
     }
 
     @Override
@@ -56,12 +49,11 @@ public class OrdersPresenter extends BasePresenter<IOrdersView, IOrdersRouter> i
                         orders.addOrders(response.getData());
                         orders.setTotal(response.getData().getTotal());
 
-                        if (getView() != null)
-                            getView().setOrders(orders.getOrders(), orders.mayBeMore());
+                        getViewState().setOrders(orders.getOrders(), orders.mayBeMore());
                     },
                     throwable -> {
                         getOrdersInteractor.release();
-                        getView().showError(throwable.getMessage());
+                        getViewState().showError(throwable.getMessage());
                     }
             );
         }

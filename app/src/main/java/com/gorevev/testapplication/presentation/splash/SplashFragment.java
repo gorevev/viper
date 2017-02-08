@@ -38,10 +38,4 @@ public class SplashFragment extends BaseFragment implements ISplashView {
     public void showError(String message) {
         Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
     }
-
-
-    @Override
-    protected void inject() {
-
-    }
 }

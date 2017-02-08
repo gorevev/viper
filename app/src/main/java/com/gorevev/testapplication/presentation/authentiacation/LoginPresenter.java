@@ -1,17 +1,16 @@
 package com.gorevev.testapplication.presentation.authentiacation;
 
+import com.arellomobile.mvp.InjectViewState;
 import com.gorevev.testapplication.domain.user.LoginInteractor;
 import com.gorevev.testapplication.domain.user.LogoutInteractor;
-import com.gorevev.testapplication.presentation.common.BasePresenter;
 import com.gorevev.testapplication.domain.user.entities.LoginParams;
-
-import rx.functions.Action1;
+import com.gorevev.testapplication.presentation.common.BasePresenter;
 
 /**
  * Created by e.gorev on 30.01.2017.
  */
-
-public class LoginPresenter extends BasePresenter<ILoginView, IAuthenticationRouter> implements ILoginPresenter {
+@InjectViewState
+public class LoginPresenter extends BasePresenter<ILoginView, IAuthenticationRouter> {
 
     LoginInteractor loginInteractor;
 
@@ -24,40 +23,28 @@ public class LoginPresenter extends BasePresenter<ILoginView, IAuthenticationRou
         this.logoutInteractor = logoutInteractor;
     }
 
-    @Override
     public void login(String login, String password) {
 
-        LoginParams params = new LoginParams();
+        LoginParams params = new LoginParams(login, password);
         params.setLogin(login);
         params.setPassword(password);
 
         loginInteractor.execute(params)
                 .subscribe(
                         user -> {
-                            getView().loggedIn();
+                            getViewState().loggedIn();
                             getRouter().showRoutesList();
                         },
-                        throwable -> getView().showError(throwable.getMessage())
+                        throwable -> getViewState().showError(throwable.getMessage())
                 );
     }
 
-    @Override
     public void logout() {
 
         logoutInteractor.execute()
                 .subscribe(
                         aVoid -> {
-                            getView().loggedOut();
+                            getViewState().loggedOut();
                 });
-    }
-
-    @Override
-    public void onStart() {
-
-    }
-
-    @Override
-    public void onStop() {
-
     }
 }

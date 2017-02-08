@@ -62,6 +62,12 @@ dependencies {
     compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     compile "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion"
 
+    compile "ru.terrakok.cicerone:cicerone:$ciceroneVersion"
+
+    compile "com.arello-mobile:moxy:$moxyVersion"
+    compile "com.arello-mobile:moxy-app-compat:$moxyVersion"
+    apt "com.arello-mobile:moxy-compiler:$moxyVersion"
+
     compile 'com.pnikosis:materialish-progress:1.7'
 
     testCompile 'junit:junit:4.12'

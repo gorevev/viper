@@ -2,7 +2,6 @@ package com.gorevev.testapplication.presentation.orders.injection;
 
 import com.gorevev.testapplication.presentation.common.BaseFragment;
 import com.gorevev.testapplication.presentation.common.injection.ScreenScope;
-import com.gorevev.testapplication.presentation.orders.IOrdersPresenter;
 import com.gorevev.testapplication.presentation.orders.IOrdersRouter;
 import com.gorevev.testapplication.presentation.orders.OrdersPresenter;
 import com.gorevev.testapplication.presentation.orders.OrdersRouter;
@@ -31,7 +30,7 @@ public class OrdersModule {
 
     @Provides
     @ScreenScope
-    public IOrdersPresenter providesPresenter(IOrdersRouter router) {
+    public OrdersPresenter providesPresenter(IOrdersRouter router) {
         return new OrdersPresenter();
     }
 }

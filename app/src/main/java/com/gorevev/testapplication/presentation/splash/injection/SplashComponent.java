@@ -2,6 +2,7 @@ package com.gorevev.testapplication.presentation.splash.injection;
 
 import com.gorevev.testapplication.presentation.common.injection.ScreenScope;
 import com.gorevev.testapplication.presentation.splash.SplashFragment;
+import com.gorevev.testapplication.presentation.splash.SplashPresenter;
 
 import dagger.Subcomponent;
 
@@ -14,4 +15,5 @@ import dagger.Subcomponent;
 public interface SplashComponent {
 
     void inject(SplashFragment view);
+    SplashPresenter splashPresenter();
 }

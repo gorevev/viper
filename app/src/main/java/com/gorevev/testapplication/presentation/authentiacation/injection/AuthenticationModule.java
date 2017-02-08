@@ -1,12 +1,9 @@
 package com.gorevev.testapplication.presentation.authentiacation.injection;
 
-import android.content.Context;
-
 import com.gorevev.testapplication.domain.user.LoginInteractor;
 import com.gorevev.testapplication.domain.user.LogoutInteractor;
 import com.gorevev.testapplication.presentation.authentiacation.AuthenticationRouter;
 import com.gorevev.testapplication.presentation.authentiacation.IAuthenticationRouter;
-import com.gorevev.testapplication.presentation.authentiacation.ILoginPresenter;
 import com.gorevev.testapplication.presentation.authentiacation.LoginPresenter;
 import com.gorevev.testapplication.presentation.common.BaseFragment;
 import com.gorevev.testapplication.presentation.common.injection.ScreenScope;
@@ -35,7 +32,7 @@ public class AuthenticationModule {
 
     @Provides
     @ScreenScope
-    ILoginPresenter providesPresenter(IAuthenticationRouter router,
+    LoginPresenter providesPresenter(IAuthenticationRouter router,
                                       LoginInteractor loginInteractor,
                                       LogoutInteractor logoutInteractor) {
 

@@ -1,10 +1,7 @@
 package com.gorevev.testapplication.presentation.splash.injection;
 
-import android.content.Context;
-
 import com.gorevev.testapplication.presentation.common.BaseFragment;
 import com.gorevev.testapplication.presentation.common.injection.ScreenScope;
-import com.gorevev.testapplication.presentation.splash.ISplashPresenter;
 import com.gorevev.testapplication.presentation.splash.ISplashRouter;
 import com.gorevev.testapplication.presentation.splash.SplashPresenter;
 import com.gorevev.testapplication.presentation.splash.SplashRouter;
@@ -32,8 +29,7 @@ public class SplashModule {
     }
 
     @Provides
-    @ScreenScope
-    ISplashPresenter providesPersenter(ISplashRouter router) {
+    SplashPresenter providesPresenter(ISplashRouter router) {
         return new SplashPresenter(router);
     }
 }

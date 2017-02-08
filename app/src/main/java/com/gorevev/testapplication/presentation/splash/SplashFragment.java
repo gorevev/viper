@@ -3,6 +3,8 @@ package com.gorevev.testapplication.presentation.splash;
 import android.support.annotation.NonNull;
 import android.widget.Toast;
 
+import com.arellomobile.mvp.presenter.InjectPresenter;
+import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.gorevev.testapplication.R;
 import com.gorevev.testapplication.presentation.common.BaseFragment;
 import com.gorevev.testapplication.presentation.common.IBasePresenter;
@@ -18,8 +20,13 @@ import javax.inject.Inject;
 @Layout(R.layout.fragment_splash)
 public class SplashFragment extends BaseFragment implements ISplashView {
 
-    @Inject
-    ISplashPresenter presenter;
+    @InjectPresenter
+    SplashPresenter presenter;
+
+    @ProvidePresenter
+    SplashPresenter providePresenter() {
+        return App.getInstance().getSplashComponent(this).splashPresenter();
+    }
 
     @Override
     public void finishInitialization() {
@@ -32,14 +39,9 @@ public class SplashFragment extends BaseFragment implements ISplashView {
         Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
     }
 
-    @NonNull
-    @Override
-    protected IBasePresenter getPresenter() {
-        return presenter;
-    }
 
     @Override
     protected void inject() {
-        App.getInstance().getSplashComponent(this);
+
     }
 }

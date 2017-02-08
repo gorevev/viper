@@ -4,6 +4,7 @@ import com.gorevev.testapplication.presentation.authentiacation.injection.Authen
 import com.gorevev.testapplication.presentation.authentiacation.injection.AuthenticationModule;
 import com.gorevev.testapplication.presentation.orders.injection.OrdersComponent;
 import com.gorevev.testapplication.presentation.orders.injection.OrdersModule;
+import com.gorevev.testapplication.presentation.splash.SplashActivity;
 import com.gorevev.testapplication.presentation.splash.injection.SplashComponent;
 import com.gorevev.testapplication.presentation.splash.injection.SplashModule;
 
@@ -16,7 +17,13 @@ import dagger.Component;
  */
 
 @Singleton
-@Component(modules = {AppModule.class, RepositoryModule.class, NetworkModule.class, APIModule.class})
+@Component(modules = {
+        AppModule.class,
+        RepositoryModule.class,
+        NetworkModule.class,
+        APIModule.class,
+        NavigationModule.class
+})
 public interface AppComponent {
 
     SplashComponent plus(SplashModule module);

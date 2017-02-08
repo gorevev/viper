@@ -1,25 +1,16 @@
 package com.gorevev.testapplication.presentation.common;
 
-public abstract class BasePresenter<View, Router> implements IBasePresenter<View, Router> {
+import com.arellomobile.mvp.MvpPresenter;
+import com.arellomobile.mvp.MvpView;
 
-    private View view;
-    private Router router;
+public abstract class BasePresenter<View extends MvpView, Router> extends MvpPresenter<View> {
+    protected Router router;
 
-    public View getView() {
-        return view;
-    }
-
-    public void setView(View view) {
-        this.view = view;
+    public void setRouter(Router router) {
+        this.router = router;
     }
 
     public Router getRouter() {
         return router;
     }
-
-    public void setRouter(Router router) {
-        this.router = router;
-    }
 }
-
-

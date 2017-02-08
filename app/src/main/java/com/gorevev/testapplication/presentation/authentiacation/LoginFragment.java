@@ -4,6 +4,8 @@ import android.support.annotation.NonNull;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.arellomobile.mvp.presenter.InjectPresenter;
+import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.gorevev.testapplication.R;
 import com.gorevev.testapplication.presentation.common.BaseFragment;
 import com.gorevev.testapplication.presentation.common.IBasePresenter;
@@ -22,19 +24,18 @@ import butterknife.OnClick;
 @Layout(R.layout.fragment_login)
 public class LoginFragment extends BaseFragment implements ILoginView {
 
-    @Inject
-    ILoginPresenter presenter;
-
     @BindView(R.id.login)
     EditText login;
 
     @BindView(R.id.password)
     EditText password;
 
-    @NonNull
-    @Override
-    protected IBasePresenter getPresenter() {
-        return presenter;
+    @InjectPresenter
+    LoginPresenter presenter;
+
+    @ProvidePresenter
+    LoginPresenter providePresenter() {
+        return App.getInstance().getAuthenticationComponent(this).loginPresenter();
     }
 
     @Override

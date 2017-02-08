@@ -1,18 +1,18 @@
 package com.gorevev.testapplication.presentation.common;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.arellomobile.mvp.MvpAppCompatFragment;
 
 import java.lang.annotation.Annotation;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment extends MvpAppCompatFragment {
 
     protected Unbinder unbinder;
 
@@ -33,35 +33,18 @@ public abstract class BaseFragment extends Fragment {
     }
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
+    public void onCreate(Bundle savedInstanceState) {
         inject();
-
-        getPresenter().setView(this);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        getPresenter().onStart();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        getPresenter().onStop();
+        super.onCreate(savedInstanceState);
     }
 
     @Override
     public void onDestroyView() {
         unbinder.unbind();
-        getPresenter().setRouter(null);
         super.onDestroyView();
     }
 
-    @NonNull
-    protected abstract IBasePresenter getPresenter();
+
 
     protected abstract void inject();
 }

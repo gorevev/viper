@@ -3,4 +3,6 @@
 
     <string name="exception_repository_put">Не удалось положить данные в хранилище</string>
     <string name="exception_initialization_user">Не удалось получить данные пользователя</string>
+
+    <string name="make_a_bet">Сделать ставку</string>
 </resources>

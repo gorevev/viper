@@ -6,5 +6,5 @@ package com.gorevev.testapplication.presentation.authentiacation;
 
 public interface IAuthenticationRouter {
 
-    void showRoutesList();
+    void showOrders();
 }

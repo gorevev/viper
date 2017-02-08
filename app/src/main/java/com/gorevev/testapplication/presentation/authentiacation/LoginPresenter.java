@@ -6,6 +6,7 @@ import com.gorevev.testapplication.domain.user.LogoutInteractor;
 import com.gorevev.testapplication.domain.user.entities.LoginParams;
 import com.gorevev.testapplication.presentation.common.BasePresenter;
 
+
 /**
  * Created by e.gorev on 30.01.2017.
  */
@@ -26,16 +27,21 @@ public class LoginPresenter extends BasePresenter<ILoginView, IAuthenticationRou
     public void login(String login, String password) {
 
         LoginParams params = new LoginParams(login, password);
-        params.setLogin(login);
-        params.setPassword(password);
+
+        getViewState().showProgress();
 
         loginInteractor.execute(params)
                 .subscribe(
                         user -> {
                             getViewState().loggedIn();
-                            getRouter().showRoutesList();
+                            getRouter().showOrders();
+                            loginInteractor.release();
                         },
-                        throwable -> getViewState().showError(throwable.getMessage())
+                        throwable -> {
+                            getViewState().hideProgress();
+                            getViewState().showError(throwable.getMessage());
+                            loginInteractor.release();
+                        }
                 );
     }
 

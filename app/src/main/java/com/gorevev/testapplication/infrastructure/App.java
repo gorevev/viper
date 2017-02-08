@@ -26,7 +26,7 @@ public class App extends Application {
     private AppComponent appComponent;
     private SplashComponent splashComponent;
     private AuthenticationComponent authenticationComponent;
-    private OrdersComponent routesListComponent;
+    private OrdersComponent ordersComponent;
 
     public static App getInstance() {
         return instance;
@@ -63,14 +63,14 @@ public class App extends Application {
         return authenticationComponent;
     }
 
-    public OrdersComponent getRoutesListComponent(OrdersFragment fragment) {
+    public OrdersComponent getOrdersComponent(OrdersFragment fragment) {
 
-        if (routesListComponent == null)
-            routesListComponent = appComponent.plus(new OrdersModule(fragment));
+        if (ordersComponent == null)
+            ordersComponent = appComponent.plus(new OrdersModule(fragment));
 
-        routesListComponent.inject(fragment);
+        ordersComponent.inject(fragment);
 
-        return routesListComponent;
+        return ordersComponent;
     }
 
     public void releaseSplashComponent() {
@@ -82,6 +82,6 @@ public class App extends Application {
     }
 
     public void releaseRoutesListComponent() {
-        routesListComponent = null;
+        ordersComponent = null;
     }
 }

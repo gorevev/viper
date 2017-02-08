@@ -8,6 +8,10 @@ import com.arellomobile.mvp.MvpView;
 
 public interface ILoginView extends MvpView {
 
+    void showProgress();
+
+    void hideProgress();
+
     void loggedIn();
 
     void loggedOut();

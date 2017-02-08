@@ -1,5 +1,6 @@
 package com.gorevev.testapplication.presentation.orders.injection;
 
+import com.gorevev.testapplication.domain.order.GetOrdersInteractor;
 import com.gorevev.testapplication.presentation.common.BaseFragment;
 import com.gorevev.testapplication.presentation.common.injection.ScreenScope;
 import com.gorevev.testapplication.presentation.orders.IOrdersRouter;
@@ -16,7 +17,7 @@ import dagger.Provides;
 @Module
 public class OrdersModule {
 
-    BaseFragment fragment;
+    private BaseFragment fragment;
 
     public OrdersModule(BaseFragment fragment) {
         this.fragment = fragment;
@@ -25,12 +26,11 @@ public class OrdersModule {
     @Provides
     @ScreenScope
     public IOrdersRouter providesRouter() {
-        return new OrdersRouter();
+        return new OrdersRouter(fragment.getActivity());
     }
 
     @Provides
-    @ScreenScope
-    public OrdersPresenter providesPresenter(IOrdersRouter router) {
-        return new OrdersPresenter();
+    public OrdersPresenter providesPresenter(IOrdersRouter router, GetOrdersInteractor getOrdersInteractor) {
+        return new OrdersPresenter(router, getOrdersInteractor);
     }
 }

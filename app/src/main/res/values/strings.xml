@@ -5,4 +5,19 @@
     <string name="exception_initialization_user">Не удалось получить данные пользователя</string>
 
     <string name="make_a_bet">Сделать ставку</string>
+
+    <string name="text_btn_login">Войти</string>
+    <string name="text_btn_register">Зарегистрироваться</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!--Side menu items-->
+    <string name="side_menu_item_orders">Все заказы</string>
+    <string name="side_menu_item_orders_search">Поиск заказов</string>
+    <string name="side_menu_item_logout">Выход</string>
 </resources>

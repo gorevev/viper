@@ -13,7 +13,7 @@
     android:layout_marginBottom="4dp"
     android:layout_marginTop="4dp">
 
-    <com.gorevev.testapplication.presentation.orders.OrderView
+    <com.gorevev.testapplication.presentation.main.orders.OrderView
         android:id="@+id/order"
         android:background="?selectableItemBackground"
         android:layout_width="match_parent"

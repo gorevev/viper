@@ -6,7 +6,7 @@ import com.gorevev.testapplication.domain.common.Interactor;
 import com.gorevev.testapplication.domain.common.entities.Response;
 import com.gorevev.testapplication.infrastructure.repository.RepositoryException;
 import com.gorevev.testapplication.infrastructure.storages.TokenStorage;
-import com.gorevev.testapplication.presentation.common.injection.DomainModule;
+import com.gorevev.testapplication.presentation._common.injection.DomainModule;
 import com.gorevev.testapplication.domain.user.api.IUserAPI;
 import com.gorevev.testapplication.domain.user.entities.LoginParams;
 import com.gorevev.testapplication.domain.user.entities.Token;

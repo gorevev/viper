@@ -1,29 +1,47 @@
 package com.gorevev.testapplication.presentation.authentiacation;
 
-import android.content.Intent;
+import com.gorevev.testapplication.presentation.authentiacation.login.ILoginRouter;
+import com.gorevev.testapplication.presentation.authentiacation.startpage.IStartPageRouter;
 
-import com.gorevev.testapplication.infrastructure.CurrentActivityProvider;
-import com.gorevev.testapplication.presentation.common.BaseFragment;
-import com.gorevev.testapplication.presentation.orders.OrdersActivity;
+import javax.inject.Inject;
+
+import ru.terrakok.cicerone.Router;
 
 /**
  * Created by e.gorev on 30.01.2017.
  */
 
-public class AuthenticationRouter implements IAuthenticationRouter {
+public class AuthenticationRouter implements IStartPageRouter, ILoginRouter {
 
-    CurrentActivityProvider provider;
+    Router router;
 
-    public AuthenticationRouter(CurrentActivityProvider provider) {
-        this.provider = provider;
+    @Inject
+    public AuthenticationRouter(Router router) {
+        this.router = router;
     }
 
     @Override
-    public void showOrders() {
+    public void showLogin() {
+        router.navigateTo(AuthTransitions.LOGIN);
+    }
 
-        provider.getCurrentActivity().finish();
+    @Override
+    public void showRegistration() {
+        router.navigateTo(AuthTransitions.REGISTRATION);
+    }
 
-        Intent intent = new Intent(provider.getCurrentActivity(), OrdersActivity.class);
-        provider.getCurrentActivity().startActivity(intent);
+    @Override
+    public void showPasswordRecovery() {
+        router.navigateTo(AuthTransitions.PASSWORD_RECOVERY);
+    }
+
+    @Override
+    public void showMainScreen() {
+        router.replaceScreen(AuthTransitions.MAIN_SCREEN);
+    }
+
+    @Override
+    public void back() {
+        router.exit();
     }
 }

@@ -1,7 +1,12 @@
 package com.gorevev.testapplication.presentation.splash;
 
+import android.text.TextUtils;
+
 import com.arellomobile.mvp.InjectViewState;
-import com.gorevev.testapplication.presentation.common.BasePresenter;
+import com.gorevev.testapplication.infrastructure.storages.TokenStorage;
+import com.gorevev.testapplication.presentation._common.BasePresenter;
+
+import javax.inject.Inject;
 
 /**
  * Created by Ginko on 04.12.2016.
@@ -10,18 +15,29 @@ import com.gorevev.testapplication.presentation.common.BasePresenter;
 @InjectViewState
 public class SplashPresenter extends BasePresenter<ISplashView, ISplashRouter> {
 
-    public SplashPresenter(ISplashRouter router) {
+    private final TokenStorage storage;
+
+    @Inject
+    SplashPresenter(ISplashRouter router, TokenStorage storage) {
+
+        this.storage = storage;
         this.setRouter(router);
     }
 
     @Override
     protected void onFirstViewAttach() {
+
         super.onFirstViewAttach();
         init();
     }
 
-    public void init() {
+    private void init() {
+
         getViewState().finishInitialization();
-        getRouter().openLogin();
+        if(TextUtils.isEmpty(storage.get())) {
+            getRouter().showAuthentication();
+        } else {
+            getRouter().showMainScreen();
+        }
     }
 }

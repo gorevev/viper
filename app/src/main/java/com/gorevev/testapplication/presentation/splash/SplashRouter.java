@@ -1,9 +1,8 @@
 package com.gorevev.testapplication.presentation.splash;
 
-import android.content.Context;
-import android.content.Intent;
+import javax.inject.Inject;
 
-import com.gorevev.testapplication.presentation.authentiacation.AuthenticationActivity;
+import ru.terrakok.cicerone.Router;
 
 /**
  * Created by Ginko on 07.12.2016.
@@ -11,16 +10,29 @@ import com.gorevev.testapplication.presentation.authentiacation.AuthenticationAc
 
 public class SplashRouter implements ISplashRouter {
 
-    Context context;
+    private Router router;
 
-    public SplashRouter(Context context) {
-        this.context = context;
+    @Inject
+    public SplashRouter(Router router) {
+
+        this.router = router;
     }
 
     @Override
-    public void openLogin() {
+    public void showAuthentication() {
 
-        Intent intent = new Intent(context, AuthenticationActivity.class);
-        context.startActivity(intent);
+        router.replaceScreen(SplashTransitions.AUTHENTICATION);
+    }
+
+    @Override
+    public void showMainScreen() {
+
+        router.replaceScreen(SplashTransitions.MAIN_SCREEN);
+    }
+
+    @Override
+    public void back() {
+
+        router.exit();
     }
 }

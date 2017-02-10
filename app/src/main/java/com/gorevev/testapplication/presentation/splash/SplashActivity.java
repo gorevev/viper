@@ -4,8 +4,16 @@ import android.os.Bundle;
 
 import com.gorevev.testapplication.R;
 import com.gorevev.testapplication.infrastructure.App;
-import com.gorevev.testapplication.presentation.common.BaseActivity;
-import com.gorevev.testapplication.presentation.common.Layout;
+import com.gorevev.testapplication.presentation.authentiacation.AuthenticationActivity;
+import com.gorevev.testapplication.presentation._common.BaseActivity;
+import com.gorevev.testapplication.presentation._common.Layout;
+
+import javax.inject.Inject;
+
+import ru.terrakok.cicerone.Navigator;
+import ru.terrakok.cicerone.NavigatorHolder;
+import ru.terrakok.cicerone.commands.Command;
+import ru.terrakok.cicerone.commands.Replace;
 
 /**
  * Created by Ginko on 16.11.2016.
@@ -15,11 +23,27 @@ import com.gorevev.testapplication.presentation.common.Layout;
 public class SplashActivity extends BaseActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        if (getSupportFragmentManager().getBackStackEntryCount() == 0)
-            addBackStack(new SplashFragment());
+    protected Navigator createNavigator() {
+        return new SplashNavigator(this, R.id.content);
     }
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        App.getInstance().getSplashComponent().inject(this);
+        if (getSupportFragmentManager().getBackStackEntryCount() == 0)
+            router.replaceScreen(SplashTransitions.START_PAGE);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        navigatorHolder.setNavigator(navigator);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        navigatorHolder.removeNavigator();
+    }
 }

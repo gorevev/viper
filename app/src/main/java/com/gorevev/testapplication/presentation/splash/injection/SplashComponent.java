@@ -1,7 +1,7 @@
 package com.gorevev.testapplication.presentation.splash.injection;
 
-import com.gorevev.testapplication.presentation.common.injection.ScreenScope;
-import com.gorevev.testapplication.presentation.splash.SplashFragment;
+import com.gorevev.testapplication.presentation._common.injection.ScreenScope;
+import com.gorevev.testapplication.presentation.splash.SplashActivity;
 import com.gorevev.testapplication.presentation.splash.SplashPresenter;
 
 import dagger.Subcomponent;
@@ -14,6 +14,7 @@ import dagger.Subcomponent;
 @Subcomponent(modules = {SplashModule.class})
 public interface SplashComponent {
 
-    void inject(SplashFragment view);
     SplashPresenter splashPresenter();
+
+    void inject(SplashActivity activity);
 }

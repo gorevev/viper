@@ -4,7 +4,7 @@ import com.gorevev.testapplication.domain.common.Interactor;
 import com.gorevev.testapplication.domain.common.entities.Response;
 import com.gorevev.testapplication.domain.order.api.IOrderAPI;
 import com.gorevev.testapplication.domain.order.entities.OrdersList;
-import com.gorevev.testapplication.presentation.common.injection.DomainModule;
+import com.gorevev.testapplication.presentation._common.injection.DomainModule;
 
 import java.util.Map;
 

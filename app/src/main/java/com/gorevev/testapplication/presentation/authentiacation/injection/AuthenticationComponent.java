@@ -1,9 +1,10 @@
 package com.gorevev.testapplication.presentation.authentiacation.injection;
 
-import com.gorevev.testapplication.presentation.authentiacation.LoginFragment;
-import com.gorevev.testapplication.presentation.authentiacation.LoginPresenter;
-import com.gorevev.testapplication.presentation.common.injection.DomainModule;
-import com.gorevev.testapplication.presentation.common.injection.ScreenScope;
+import com.gorevev.testapplication.presentation._common.injection.DomainModule;
+import com.gorevev.testapplication.presentation._common.injection.ScreenScope;
+import com.gorevev.testapplication.presentation.authentiacation.AuthenticationActivity;
+import com.gorevev.testapplication.presentation.authentiacation.login.LoginPresenter;
+import com.gorevev.testapplication.presentation.authentiacation.startpage.StartPagePresenter;
 
 import dagger.Subcomponent;
 
@@ -15,7 +16,8 @@ import dagger.Subcomponent;
 @Subcomponent(modules = {AuthenticationModule.class, DomainModule.class})
 public interface AuthenticationComponent {
 
-    void inject(LoginFragment view);
-
     LoginPresenter loginPresenter();
+    StartPagePresenter startPagePresenter();
+
+    void inject(AuthenticationActivity authenticationActivity);
 }

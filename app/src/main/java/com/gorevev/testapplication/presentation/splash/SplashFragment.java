@@ -1,17 +1,14 @@
 package com.gorevev.testapplication.presentation.splash;
 
-import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 import android.widget.Toast;
 
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.gorevev.testapplication.R;
-import com.gorevev.testapplication.presentation.common.BaseFragment;
-import com.gorevev.testapplication.presentation.common.IBasePresenter;
-import com.gorevev.testapplication.presentation.common.Layout;
+import com.gorevev.testapplication.presentation._common.BaseFragment;
+import com.gorevev.testapplication.presentation._common.Layout;
 import com.gorevev.testapplication.infrastructure.App;
-
-import javax.inject.Inject;
 
 /**
  * Created by Ginko on 04.12.2016.
@@ -25,13 +22,16 @@ public class SplashFragment extends BaseFragment implements ISplashView {
 
     @ProvidePresenter
     SplashPresenter providePresenter() {
-        return App.getInstance().getSplashComponent(this).splashPresenter();
+        return App.getInstance().getSplashComponent().splashPresenter();
+    }
+
+    public static Fragment newInstance() {
+        return new SplashFragment();
     }
 
     @Override
     public void finishInitialization() {
         Toast.makeText(getActivity(), "finish initialization", Toast.LENGTH_LONG).show();
-        getActivity().finish();
     }
 
     @Override

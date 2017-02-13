@@ -1,5 +1,6 @@
 package com.gorevev.testapplication.presentation.main;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
@@ -20,11 +21,11 @@ public class MainNavigator extends BaseNavigator {
     }
 
     @Override
-    protected Intent createIntent(String screenName, Object transferData) {
+    protected Intent createIntent(Context context, String screenName, Object transferData) {
         //TODO show order details
         switch (screenName) {
             case MainTransitions.AUTHENTICATION_SCREEN:
-                return AuthenticationActivity.createIntent(activity);
+                return AuthenticationActivity.createIntent(context);
         }
         return null;
     }

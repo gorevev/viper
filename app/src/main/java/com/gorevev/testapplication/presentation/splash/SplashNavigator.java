@@ -1,5 +1,6 @@
 package com.gorevev.testapplication.presentation.splash;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
@@ -20,12 +21,12 @@ public class SplashNavigator extends BaseNavigator {
     }
 
     @Override
-    protected Intent createIntent(String screenName, Object transferData) {
+    protected Intent createIntent(Context context, String screenName, Object transferData) {
         switch (screenName) {
             case SplashTransitions.AUTHENTICATION:
-                return AuthenticationActivity.createIntent(activity);
+                return AuthenticationActivity.createIntent(context);
             case SplashTransitions.MAIN_SCREEN:
-                return MainActivity.createIntent(activity);
+                return MainActivity.createIntent(context);
         }
 
         return null;

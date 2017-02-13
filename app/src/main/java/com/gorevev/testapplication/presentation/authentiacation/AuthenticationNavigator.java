@@ -1,5 +1,6 @@
 package com.gorevev.testapplication.presentation.authentiacation;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
@@ -10,12 +11,6 @@ import com.gorevev.testapplication.presentation.authentiacation.login.LoginFragm
 import com.gorevev.testapplication.presentation.authentiacation.registration.RegistrationFragment;
 import com.gorevev.testapplication.presentation.authentiacation.startpage.StartPageFragment;
 import com.gorevev.testapplication.presentation.main.MainActivity;
-
-import ru.terrakok.cicerone.Navigator;
-import ru.terrakok.cicerone.android.SupportFragmentNavigator;
-import ru.terrakok.cicerone.commands.Command;
-import ru.terrakok.cicerone.commands.Forward;
-import ru.terrakok.cicerone.commands.Replace;
 
 /**
  * Created by denischuvasov on 10.02.17.
@@ -28,10 +23,10 @@ public class AuthenticationNavigator extends BaseNavigator {
     }
 
     @Override
-    protected Intent createIntent(String screenName, Object transferData) {
+    protected Intent createIntent(Context context, String screenName, Object transferData) {
         switch (screenName) {
             case AuthTransitions.MAIN_SCREEN:
-                return new Intent(activity, MainActivity.class);
+                return new Intent(context, MainActivity.class);
         }
 
         return null;

@@ -1,14 +1,76 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.gorevev.testapplication.presentation.authentiacation.registration.RegistrationFragment">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
 
-</FrameLayout>
+        <EditText
+            android:id="@+id/ev_registration_surname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Фамилия"
+            android:text="Test"
+            />
+
+        <EditText
+            android:id="@+id/et_registration_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Test"
+            android:hint="Имя"
+            />
+        <EditText
+            android:id="@+id/et_registration_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Телефон"
+            android:text="+79528002032"
+            />
+        <EditText
+            android:id="@+id/et_registration_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Емайл"
+            android:text="t@t.t"
+            />
+        <EditText
+            android:id="@+id/et_registration_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Пароль"
+            android:text="123456"
+            />
+
+        <RadioGroup
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <RadioButton
+                android:id="@+id/rb_registration_ip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ИП"
+                android:checked="true"
+                />
+
+            <RadioButton
+                android:id="@+id/rb_registration_jul"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Юр лицо"
+                />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btn_registration_registration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Регистрация"
+            />
+    </LinearLayout>
+
+</ScrollView>

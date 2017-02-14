@@ -1,6 +1,8 @@
 package com.gorevev.testapplication.presentation.authentiacation;
 
+import com.gorevev.testapplication.presentation.authentiacation.confirmSms.IConfirmSMSRouter;
 import com.gorevev.testapplication.presentation.authentiacation.login.ILoginRouter;
+import com.gorevev.testapplication.presentation.authentiacation.registration.IRegistrationRouter;
 import com.gorevev.testapplication.presentation.authentiacation.startpage.IStartPageRouter;
 
 import javax.inject.Inject;
@@ -11,9 +13,9 @@ import ru.terrakok.cicerone.Router;
  * Created by e.gorev on 30.01.2017.
  */
 
-public class AuthenticationRouter implements IStartPageRouter, ILoginRouter {
+public class AuthenticationRouter implements IStartPageRouter, ILoginRouter, IRegistrationRouter, IConfirmSMSRouter {
 
-    Router router;
+    private Router router;
 
     @Inject
     public AuthenticationRouter(Router router) {
@@ -43,5 +45,10 @@ public class AuthenticationRouter implements IStartPageRouter, ILoginRouter {
     @Override
     public void back() {
         router.exit();
+    }
+
+    @Override
+    public void showConfirmSmsDialog() {
+        router.navigateTo(AuthTransitions.SMS_CONFIRM);
     }
 }

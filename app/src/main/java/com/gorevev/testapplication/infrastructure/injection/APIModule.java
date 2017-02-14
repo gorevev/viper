@@ -1,5 +1,6 @@
 package com.gorevev.testapplication.infrastructure.injection;
 
+import com.gorevev.testapplication.domain.dictionary.api.IDictionaryAPI;
 import com.gorevev.testapplication.domain.order.api.IOrderAPI;
 import com.gorevev.testapplication.domain.user.api.IUserAPI;
 
@@ -26,5 +27,11 @@ public class APIModule {
     @Singleton
     IOrderAPI providesOrderAPI(Retrofit retrofit) {
         return retrofit.create(IOrderAPI.class);
+    }
+
+    @Provides
+    @Singleton
+    IDictionaryAPI providesDictionaryAPI(Retrofit retrofit) {
+        return retrofit.create(IDictionaryAPI.class);
     }
 }

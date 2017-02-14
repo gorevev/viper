@@ -2,6 +2,7 @@ package com.gorevev.testapplication.infrastructure.injection;
 
 import com.gorevev.testapplication.infrastructure.network.HeadersInterceptor;
 import com.gorevev.testapplication.infrastructure.headers.AuthorizationHeader;
+import com.gorevev.testapplication.infrastructure.network.LoggingInterceptor;
 
 import javax.inject.Singleton;
 
@@ -41,15 +42,23 @@ public class NetworkModule {
 
     @Provides
     @Singleton
+    LoggingInterceptor providesLoggingInterceptor() {
+        return new LoggingInterceptor();
+    }
+
+    @Provides
+    @Singleton
     Retrofit providesRetrofit(HeadersInterceptor interceptor,
                               Converter.Factory converterFactory,
-                              CallAdapter.Factory callAdapterFactory) {
+                              CallAdapter.Factory callAdapterFactory,
+                              LoggingInterceptor loggingInterceptor) {
 
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
         httpClient.addNetworkInterceptor(interceptor);
+        httpClient.addInterceptor(loggingInterceptor);
 
         return new Retrofit.Builder()
-                .baseUrl("http://web-services.stand.dev.magdv.com/api/v1/")
+                .baseUrl("http://develop.stand.dev.magdv.com:81/api/v1/")
                 .addConverterFactory(converterFactory)
                 .addCallAdapterFactory(callAdapterFactory)
                 .client(httpClient.build())

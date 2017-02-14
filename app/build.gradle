@@ -60,6 +60,8 @@ dependencies {
     compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     compile "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion"
 
+    compile "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
+
     compile "ru.terrakok.cicerone:cicerone:$ciceroneVersion"
 
     compile "com.arello-mobile:moxy:$moxyVersion"

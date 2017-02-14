@@ -18,6 +18,20 @@ public class RegUserParams {
     private boolean acceptPersonalData;
     private boolean acceptOffer;
 
+    public RegUserParams(boolean acceptOffer, int legalStatus, boolean isCarrier, String lastName, String firstName, String secondName, String email, String phone, String timezone, String password, boolean acceptPersonalData) {
+        this.acceptOffer = acceptOffer;
+        this.legalStatus = legalStatus;
+        this.isCarrier = isCarrier;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.email = email;
+        this.phone = phone;
+        this.timezone = timezone;
+        this.password = password;
+        this.acceptPersonalData = acceptPersonalData;
+    }
+
     public int getLegalStatus() {
         return legalStatus;
     }

@@ -20,4 +20,13 @@
     <string name="side_menu_item_orders">Все заказы</string>
     <string name="side_menu_item_orders_search">Поиск заказов</string>
     <string name="side_menu_item_logout">Выход</string>
+
+    <!--Confirm sms dialog-->
+    <string name="confirm_sms_enter_confirmation_code">
+        Введите код подтверждения, который мы отправили на указанный Вами номер:
+    </string>
+    <string name="confirm_sms_confirmation_code">Четырехзначный код</string>
+    <string name="confirm_sms_resend_timer">Запросить код повторно вы сможете через %d сек</string>
+    <string name="confirm_sms_send">Отправить</string>
+    <string name="confirm_sms_resend">Запросить код повторно</string>
 </resources>

@@ -1,7 +1,9 @@
 package com.gorevev.testapplication.presentation.authentiacation.injection;
 
 import com.gorevev.testapplication.presentation.authentiacation.AuthenticationRouter;
+import com.gorevev.testapplication.presentation.authentiacation.confirmSms.IConfirmSMSRouter;
 import com.gorevev.testapplication.presentation.authentiacation.login.ILoginRouter;
+import com.gorevev.testapplication.presentation.authentiacation.registration.IRegistrationRouter;
 import com.gorevev.testapplication.presentation.authentiacation.startpage.IStartPageRouter;
 import com.gorevev.testapplication.presentation._common.injection.ScreenScope;
 
@@ -17,13 +19,25 @@ public class AuthenticationModule {
 
     @Provides
     @ScreenScope
-    IStartPageRouter provideStartPageRouter(AuthenticationRouter router) {
+    IStartPageRouter providesStartPageRouter(AuthenticationRouter router) {
         return router;
     }
 
     @Provides
     @ScreenScope
-    ILoginRouter provideLoginRouter(AuthenticationRouter router) {
+    ILoginRouter providesLoginRouter(AuthenticationRouter router) {
+        return router;
+    }
+
+    @Provides
+    @ScreenScope
+    IRegistrationRouter providesRegistrationRouter(AuthenticationRouter router) {
+        return router;
+    }
+
+    @Provides
+    @ScreenScope
+    IConfirmSMSRouter providesConfirmSMSRouter(AuthenticationRouter router) {
         return router;
     }
 }

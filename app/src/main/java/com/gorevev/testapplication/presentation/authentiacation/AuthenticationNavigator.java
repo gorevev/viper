@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 
 import com.gorevev.testapplication.presentation._common.BaseNavigator;
+import com.gorevev.testapplication.presentation.authentiacation.confirmSms.ConfirmSMSDialogFragment;
 import com.gorevev.testapplication.presentation.authentiacation.login.LoginFragment;
 import com.gorevev.testapplication.presentation.authentiacation.registration.RegistrationFragment;
 import com.gorevev.testapplication.presentation.authentiacation.startpage.StartPageFragment;
@@ -41,6 +42,8 @@ public class AuthenticationNavigator extends BaseNavigator {
                 return StartPageFragment.newInstance();
             case AuthTransitions.REGISTRATION:
                 return RegistrationFragment.newInstance();
+            case AuthTransitions.SMS_CONFIRM:
+                return ConfirmSMSDialogFragment.newInstance();
         }
         return null;
     }

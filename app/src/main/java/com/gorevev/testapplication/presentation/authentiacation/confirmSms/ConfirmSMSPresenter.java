@@ -1,28 +1,41 @@
 package com.gorevev.testapplication.presentation.authentiacation.confirmSms;
 
+import android.util.Log;
+
 import com.arellomobile.mvp.InjectViewState;
 import com.gorevev.testapplication.domain.user.ConfirmSMSInteractor;
 import com.gorevev.testapplication.domain.user.ResendSMSInteractor;
+import com.gorevev.testapplication.domain.user.StopwatchInteractor;
 import com.gorevev.testapplication.domain.user.entities.SmsConfirmationCode;
 import com.gorevev.testapplication.presentation._common.BasePresenter;
 
 import javax.inject.Inject;
+
+import rx.Subscriber;
 
 /**
  * Created by denischuvasov on 14.02.17.
  */
 @InjectViewState
 public class ConfirmSMSPresenter extends BasePresenter<IConfirmSMSView, IConfirmSMSRouter> {
+    private static final String TAG = "ConfirmSMSPresenter";
+    private static final int DELAY = 5;
 
     private final ConfirmSMSInteractor interactor;
     private final ResendSMSInteractor resendSMSInteractor;
+    private final StopwatchInteractor stopwatchInteractor;
 
     @Inject
-    public ConfirmSMSPresenter(IConfirmSMSRouter router, ConfirmSMSInteractor interactor, ResendSMSInteractor resendSMSInteractor) {
+    public ConfirmSMSPresenter(IConfirmSMSRouter router,
+                               ConfirmSMSInteractor interactor,
+                               ResendSMSInteractor resendSMSInteractor,
+                               StopwatchInteractor stopwatchInteractor) {
         this.interactor = interactor;
         this.resendSMSInteractor = resendSMSInteractor;
+        this.stopwatchInteractor = stopwatchInteractor;
         setRouter(router);
         resendConfirmCode();
+        startTimer();
     }
 
     public void resendConfirmCode() {
@@ -35,7 +48,25 @@ public class ConfirmSMSPresenter extends BasePresenter<IConfirmSMSView, IConfirm
     }
 
     private void startTimer() {
+        stopwatchInteractor.execute(DELAY)
+                .subscribe(new Subscriber<Long>() {
+                    @Override
+                    public void onCompleted() {
+                        Log.d(TAG, "onCompleted() called");
+                        getViewState().showResendButton();
+                    }
 
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.d(TAG, "onError() called with: e = [" + e + "]");
+                    }
+
+                    @Override
+                    public void onNext(Long aLong) {
+                        Log.d(TAG, "onNext() called with: aLong = [" + aLong + "]");
+                        getViewState().showRemainingTime(DELAY - aLong.intValue());
+                    }
+                });
     }
 
     public void confirmCode(String code) {
@@ -50,5 +81,13 @@ public class ConfirmSMSPresenter extends BasePresenter<IConfirmSMSView, IConfirm
 
     public void onBackPressed() {
         router.back();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        stopwatchInteractor.unsubscribe();
+        interactor.unsubscribe();
+        resendSMSInteractor.unsubscribe();
     }
 }

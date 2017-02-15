@@ -111,11 +111,7 @@ public class RegistrationFragment extends BaseFragment implements IRegistrationV
     @Override
     public void showConfirmDialog() {
         ConfirmSMSDialogFragment dialogFragment = ConfirmSMSDialogFragment.newInstance();
-//        dialogFragment.show(getFragmentManager(), "ddd");
-        getFragmentManager().beginTransaction()
-                .replace(R.id.content, dialogFragment, "ddd")
-                .addToBackStack("dd")
-                .commit();
+        dialogFragment.show(getFragmentManager(), "ddd");
     }
 
     @Override

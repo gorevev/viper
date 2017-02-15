@@ -65,6 +65,19 @@ public class ConfirmSMSDialogFragment extends BaseDialogFragment implements ICon
     }
 
     @Override
+    public void showRemainingTime(int seconds) {
+        btnResend.setVisibility(View.GONE);
+        tvResendInfo.setVisibility(View.VISIBLE);
+        tvResendInfo.setText(getString(R.string.confirm_sms_resend_timer, seconds));
+    }
+
+    @Override
+    public void showResendButton() {
+        btnResend.setVisibility(View.VISIBLE);
+        tvResendInfo.setVisibility(View.GONE);
+    }
+
+    @Override
     public boolean onBackPressed() {
         presenter.onBackPressed();
         return true;

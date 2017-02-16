@@ -29,4 +29,68 @@
     <string name="confirm_sms_resend_timer">Запросить код повторно вы сможете через %d сек</string>
     <string name="confirm_sms_send">Отправить</string>
     <string name="confirm_sms_resend">Запросить код повторно</string>
+
+
+    <!-- Order Details -->
+
+    <string name="order_details_title" formatted="false">Заказ № %s</string>
+    <string name="order_details_order_name">Название</string>
+    <string name="order_details_sale_type">Тип торгов</string>
+    <string name="order_details_delivery_time">Перевезти за</string>
+    <string name="order_details_sender">Грузоотправитель</string>
+    <string name="order_details_contacts">Контакты грузоотправителя</string>
+    <string name="order_details_loading">Погрузка</string>
+    <string name="order_details_loading_point">Пункт погрузки</string>
+    <string name="order_details_location">Населенный пункт</string>
+    <string name="order_details_address">Адрес</string>
+    <string name="order_details_loading_time">Время погрузки</string>
+    <string name="order_details_unloading">Выгрузка</string>
+    <string name="order_details_unloading_point">Пункт выгрузки</string>
+    <string name="order_details_unloading_time">Время выгрузки</string>
+    <string name="order_details_requirements">Требования</string>
+    <string name="order_details_auto_type">Тип транспорта</string>
+    <string name="order_details_cargo_weight">Вес груза</string>
+    <string name="order_details_cargo_type">Тип груза</string>
+    <string name="order_details_loading_type">Тип погрузки</string>
+    <string name="order_details_unloading_type">Тип выгрузки</string>
+    <string name="order_details_cargo_volume">Объем</string>
+    <string name="order_details_payment_info">Информация об оплате</string>
+    <string name="order_details_payment_method">Расчет</string>
+    <string name="order_details_payment_price">Цена</string>
+    <string name="order_details_payment_tax">Цена указана</string>
+    <string name="order_details_payment_base_rate">Базовая ставка</string>
+    <string name="order_details_payment_minimal_rate_step">Минимальный шаг</string>
+    <string name="order_details_payment_increment_percent">Процент повышения</string>
+    <string name="order_details_comment">Комментарий</string>
+    <string name="order_details_bet">Сделать ставку</string>
+    <string name="order_start_search">Начать поиск</string>
+    <string name="order_details_take_part">Участвовать</string>
+    <string name="order_details_bid">Ваша ставка:</string>
+    <string name="order_details_bid_delivery_time">Срок:</string>
+    <string name="order_details_win_notification">Поздравляем! Ваша ставка выиграла</string>
+    <string name="order_details_win_notification_contact">Свяжитесь с заказчиком, чтобы оформить документы, договориться о деталях и получить оплату.</string>
+    <string name="order_view_auction">Аукцион</string>
+    <string name="order_view_express">Экспресс</string>
+    <string name="order_cargo_weight" formatted="false">%s кг</string>
+    <string name="order_cargo_volume" formatted="false">%d кб. м</string>
+    <string name="order_loading_time" formatted="false">Погруз %s</string>
+    <string name="order_payment_method_cash">Наличный</string>
+    <string name="order_payment_method_cashless">Безналичный</string>
+    <string name="order_without_vat">с НДС</string>
+    <string name="order_vat_included">без НДС</string>
+    <string name="order_you_win">Вы стали победителем</string>
+
+    <!-- Order List -->
+    <string name="order_list_results_count_template">Найдено %1$s %2$s</string>
+    <string name="order_list_change_search_params">Изменить параметры поиска</string>
+    <string name="order_cost_format" formatted="false">%d Р</string>
+    <string name="order_action_auction_bid">Сделать ставку</string>
+    <string name="order_action_auction_your_bid">Ваша ставка</string>
+    <string name="order_action_express_bid">Участвовать</string>
+    <string name="order_action_express_bid_mine">Участвуете</string>
+    <string name="order_waiting_start">Ожидает начала</string>
+    <string name="order_waiting_bid">Прием ставок</string>
+    <string name="order_ended">Торги завершены</string>
+    <string name="order_won">Вы победитель</string>
+    <string name="default_value">---</string>
 </resources>

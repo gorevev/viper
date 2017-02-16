@@ -11,6 +11,8 @@ import com.gorevev.testapplication.presentation.main.injection.MainComponent;
 import com.gorevev.testapplication.presentation.main.injection.MainModule;
 import com.gorevev.testapplication.presentation.main.orders.injection.OrdersComponent;
 import com.gorevev.testapplication.presentation.main.orders.injection.OrdersModule;
+import com.gorevev.testapplication.presentation.orderdetails.injection.OrderDetailsComponent;
+import com.gorevev.testapplication.presentation.orderdetails.injection.OrderDetailsModule;
 import com.gorevev.testapplication.presentation.splash.injection.SplashComponent;
 import com.gorevev.testapplication.presentation.splash.injection.SplashModule;
 
@@ -26,6 +28,7 @@ public class App extends Application {
     private SplashComponent splashComponent;
     private AuthenticationComponent authenticationComponent;
     private OrdersComponent ordersComponent;
+    private OrderDetailsComponent orderDetailsComponent;
     private MainComponent mainComponent;
 
     public static App getInstance() {
@@ -73,6 +76,14 @@ public class App extends Application {
         }
 
         return mainComponent;
+    }
+
+    public OrderDetailsComponent getOrderDetailsComponent() {
+        if (orderDetailsComponent == null) {
+            orderDetailsComponent = appComponent.plus(new OrderDetailsModule());
+        }
+
+        return orderDetailsComponent;
     }
 
     public void releaseSplashComponent() {

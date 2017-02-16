@@ -21,7 +21,7 @@ public class MainRouter implements IOrdersRouter, IMainRouter {
 
     @Override
     public void showOrderDetails(int id) {
-
+        router.navigateTo(MainTransitions.ORDER_DETAILS_SCREEN, id);
     }
 
     @Override

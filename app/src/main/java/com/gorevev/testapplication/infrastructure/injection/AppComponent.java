@@ -1,11 +1,14 @@
 package com.gorevev.testapplication.infrastructure.injection;
 
+import com.gorevev.testapplication.presentation._common.injection.DomainModule;
 import com.gorevev.testapplication.presentation.authentiacation.injection.AuthenticationComponent;
 import com.gorevev.testapplication.presentation.authentiacation.injection.AuthenticationModule;
 import com.gorevev.testapplication.presentation.main.injection.MainComponent;
 import com.gorevev.testapplication.presentation.main.injection.MainModule;
 import com.gorevev.testapplication.presentation.main.orders.injection.OrdersComponent;
 import com.gorevev.testapplication.presentation.main.orders.injection.OrdersModule;
+import com.gorevev.testapplication.presentation.orderdetails.injection.OrderDetailsComponent;
+import com.gorevev.testapplication.presentation.orderdetails.injection.OrderDetailsModule;
 import com.gorevev.testapplication.presentation.splash.injection.SplashComponent;
 import com.gorevev.testapplication.presentation.splash.injection.SplashModule;
 
@@ -23,7 +26,8 @@ import dagger.Component;
         RepositoryModule.class,
         NetworkModule.class,
         APIModule.class,
-        NavigationModule.class
+        NavigationModule.class,
+        DomainModule.class
 })
 public interface AppComponent {
 
@@ -34,4 +38,6 @@ public interface AppComponent {
     OrdersComponent plus(OrdersModule module);
 
     MainComponent plus(MainModule mainModule);
+
+    OrderDetailsComponent plus(OrderDetailsModule module);
 }

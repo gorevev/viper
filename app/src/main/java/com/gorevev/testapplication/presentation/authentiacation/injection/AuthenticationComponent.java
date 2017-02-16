@@ -15,7 +15,7 @@ import dagger.Subcomponent;
  */
 
 @ScreenScope
-@Subcomponent(modules = {AuthenticationModule.class, DomainModule.class})
+@Subcomponent(modules = {AuthenticationModule.class})
 public interface AuthenticationComponent {
     void inject(AuthenticationActivity authenticationActivity);
 

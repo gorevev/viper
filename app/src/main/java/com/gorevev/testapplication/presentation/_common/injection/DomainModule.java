@@ -1,6 +1,7 @@
 package com.gorevev.testapplication.presentation._common.injection;
 
 import javax.inject.Named;
+import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
@@ -18,14 +19,14 @@ public class DomainModule {
     public static final String UI = "UI";
 
     @Provides
-    @ScreenScope
+    @Singleton
     @Named(JOB)
     public Scheduler provideJobScheduler() {
         return Schedulers.newThread();
     }
 
     @Provides
-    @ScreenScope
+    @Singleton
     @Named(UI)
     public Scheduler provideUIScheduler() {
         return AndroidSchedulers.mainThread();

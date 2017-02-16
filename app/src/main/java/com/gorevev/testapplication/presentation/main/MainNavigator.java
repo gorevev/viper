@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.gorevev.testapplication.presentation._common.BaseNavigator;
 import com.gorevev.testapplication.presentation.authentiacation.AuthenticationActivity;
 import com.gorevev.testapplication.presentation.main.orders.OrdersFragment;
+import com.gorevev.testapplication.presentation.orderdetails.OrderDetailsActivity;
 
 /**
  * Created by denischuvasov on 10.02.17.
@@ -26,6 +27,8 @@ public class MainNavigator extends BaseNavigator {
         switch (screenName) {
             case MainTransitions.AUTHENTICATION_SCREEN:
                 return AuthenticationActivity.createIntent(context);
+            case MainTransitions.ORDER_DETAILS_SCREEN:
+                return OrderDetailsActivity.createIntent(context, (Integer) transferData);
         }
         return null;
     }

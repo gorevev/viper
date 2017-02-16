@@ -3,4 +3,5 @@
     <color name="theme_color">#000000</color>
 
     <color name="default_text">#000000</color>
+    <color name="colorAccent">#dddddd</color>
 </resources>

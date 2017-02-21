@@ -1,6 +1,7 @@
 package com.gorevev.testapplication.domain.user;
 
 import com.gorevev.testapplication.domain.common.Interactor;
+import com.gorevev.testapplication.infrastructure.network.manager.NetworkConnectionManager;
 import com.gorevev.testapplication.presentation._common.injection.DomainModule;
 
 import java.util.concurrent.TimeUnit;
@@ -19,8 +20,9 @@ public class StopwatchInteractor extends Interactor<Long, Integer> {
 
     @Inject
     public StopwatchInteractor(@Named(DomainModule.JOB) Scheduler jobScheduler,
-                               @Named(DomainModule.UI) Scheduler uiScheduler) {
-        super(jobScheduler, uiScheduler);
+                               @Named(DomainModule.UI) Scheduler uiScheduler,
+                               NetworkConnectionManager manager) {
+        super(jobScheduler, uiScheduler, manager);
     }
 
     @Override

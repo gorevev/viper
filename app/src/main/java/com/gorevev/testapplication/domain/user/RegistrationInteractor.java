@@ -10,6 +10,7 @@ import com.gorevev.testapplication.domain.dictionary.entiny.TimezoneList;
 import com.gorevev.testapplication.domain.user.api.IUserAPI;
 import com.gorevev.testapplication.domain.user.entities.RegUserParams;
 import com.gorevev.testapplication.domain.user.entities.Token;
+import com.gorevev.testapplication.infrastructure.network.manager.NetworkConnectionManager;
 import com.gorevev.testapplication.infrastructure.repository.RepositoryException;
 import com.gorevev.testapplication.infrastructure.storages.TokenStorage;
 import com.gorevev.testapplication.presentation._common.injection.DomainModule;
@@ -38,8 +39,10 @@ public class RegistrationInteractor extends Interactor<Response<Token>, RegUserP
     @Inject
     public RegistrationInteractor(@Named(DomainModule.JOB) Scheduler jobScheduler,
                                   @Named(DomainModule.UI) Scheduler uiScheduler,
-                                  IUserAPI service, IDictionaryAPI dictionaryService) {
-        super(jobScheduler, uiScheduler);
+                                  IUserAPI service,
+                                  IDictionaryAPI dictionaryService,
+                                  NetworkConnectionManager manager) {
+        super(jobScheduler, uiScheduler, manager);
         this.service = service;
         this.dictionaryService = dictionaryService;
     }
@@ -55,6 +58,7 @@ public class RegistrationInteractor extends Interactor<Response<Token>, RegUserP
                         return service.registerUser(parameter);
                     }
                 })
+                .compose(convert())
                 .map(response -> {
 
                     try {

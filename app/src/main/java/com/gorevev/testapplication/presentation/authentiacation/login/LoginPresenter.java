@@ -3,6 +3,7 @@ package com.gorevev.testapplication.presentation.authentiacation.login;
 import com.arellomobile.mvp.InjectViewState;
 import com.gorevev.testapplication.domain.user.LoginInteractor;
 import com.gorevev.testapplication.domain.user.entities.LoginParams;
+import com.gorevev.testapplication.infrastructure.exception.UnauthorizedException;
 import com.gorevev.testapplication.presentation._common.BasePresenter;
 
 import javax.inject.Inject;
@@ -38,7 +39,7 @@ public class LoginPresenter extends BasePresenter<ILoginView, ILoginRouter> {
                         },
                         throwable -> {
                             getViewState().hideProgress();
-                            getViewState().showError(throwable.getMessage());
+                            handleError(throwable);
                             loginInteractor.release();
                         }
                 );
@@ -50,5 +51,14 @@ public class LoginPresenter extends BasePresenter<ILoginView, ILoginRouter> {
 
     public void showRegistration() {
         router.showRegistration();
+    }
+
+    @Override
+    protected void handleError(Throwable throwable) {
+        if(throwable instanceof UnauthorizedException) {
+            getViewState().showError("Неверный логин или пароль");
+        } else {
+            super.handleError(throwable);
+        }
     }
 }

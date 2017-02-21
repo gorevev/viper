@@ -35,7 +35,9 @@ public class LoginFragment extends BaseFragment implements ILoginView {
 
     @ProvidePresenter
     LoginPresenter providePresenter() {
-        return App.getInstance().getAuthenticationComponent().loginPresenter();
+        LoginPresenter presenter =  App.getInstance().getAuthenticationComponent().loginPresenter();
+        presenter.setThrowableResolver(getThrowableResolver());
+        return presenter;
     }
 
     @BindView(R.id.progress)

@@ -1,12 +1,8 @@
 package com.gorevev.testapplication.presentation.orderdetails;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-
 
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
@@ -18,7 +14,6 @@ import com.gorevev.testapplication.presentation._common.Layout;
 import com.gorevev.testapplication.presentation.main.orders.OrderView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 
 @Layout(R.layout.fragment_order_details)

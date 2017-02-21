@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
+import com.gorevev.testapplication.presentation._common.resolution.IThrowableResolver;
+import com.gorevev.testapplication.presentation._common.resolution.ThrowableResolver;
 import com.gorevev.testapplication.utils.Logger;
 
 import java.lang.annotation.Annotation;
@@ -16,6 +18,8 @@ import butterknife.Unbinder;
 public abstract class BaseFragment extends MvpAppCompatFragment implements IBackButtonListener {
 
     protected Unbinder unbinder;
+
+    private IThrowableResolver resolver = new ThrowableResolver();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -60,5 +64,9 @@ public abstract class BaseFragment extends MvpAppCompatFragment implements IBack
 
     protected String name() {
         return getClass().getSimpleName();
+    }
+
+    public IThrowableResolver getThrowableResolver() {
+        return resolver;
     }
 }

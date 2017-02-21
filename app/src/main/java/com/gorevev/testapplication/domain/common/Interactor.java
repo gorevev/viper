@@ -1,5 +1,9 @@
 package com.gorevev.testapplication.domain.common;
 
+import com.gorevev.testapplication.domain.common.entities.Response;
+import com.gorevev.testapplication.infrastructure.network.manager.NetworkConnectionManager;
+import com.gorevev.testapplication.infrastructure.rx.RxRestApiFunctions;
+
 import rx.Observable;
 import rx.Scheduler;
 import rx.Subscription;
@@ -15,12 +19,14 @@ public abstract class Interactor<ResultType, ParameterType> {
 
     private final CompositeSubscription subscriptions = new CompositeSubscription();
 
-    protected final Scheduler jobScheduler;
+    private final Scheduler jobScheduler;
     private final Scheduler uiScheduler;
+    private final NetworkConnectionManager manager;
 
-    public Interactor(Scheduler jobScheduler, Scheduler uiScheduler) {
+    public Interactor(Scheduler jobScheduler, Scheduler uiScheduler, NetworkConnectionManager manager) {
         this.jobScheduler = jobScheduler;
         this.uiScheduler = uiScheduler;
+        this.manager = manager;
     }
 
     protected abstract Observable<ResultType> buildObservable(ParameterType parameter);
@@ -52,5 +58,10 @@ public abstract class Interactor<ResultType, ParameterType> {
 
     public void release() {
         working = false;
+    }
+
+    protected <T extends Response<?>> Observable.Transformer<T, T> convert() {
+        return observable -> observable.onBackpressureDrop().subscribeOn(jobScheduler)
+                .retryWhen(RxRestApiFunctions.networkNoAvailableRetry(observable, manager));
     }
 }

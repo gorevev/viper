@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.gorevev.testapplication.domain.common.Interactor;
 import com.gorevev.testapplication.domain.common.entities.Response;
+import com.gorevev.testapplication.infrastructure.network.manager.NetworkConnectionManager;
 import com.gorevev.testapplication.infrastructure.repository.RepositoryException;
 import com.gorevev.testapplication.infrastructure.storages.TokenStorage;
 import com.gorevev.testapplication.presentation._common.injection.DomainModule;
@@ -33,14 +34,16 @@ public class LoginInteractor extends Interactor<Response<Token>, LoginParams> {
     @Inject
     public LoginInteractor(@Named(DomainModule.JOB) Scheduler jobScheduler,
                            @Named(DomainModule.UI) Scheduler uiScheduler,
-                           IUserAPI service) {
-        super(jobScheduler, uiScheduler);
+                           IUserAPI service,
+                           NetworkConnectionManager manager) {
+        super(jobScheduler, uiScheduler, manager);
         this.service = service;
     }
 
     @Override
     protected Observable<Response<Token>> buildObservable(LoginParams parameters) {
         return service.login(parameters)
+                .compose(convert())
                 .map(response -> {
 
                     try {

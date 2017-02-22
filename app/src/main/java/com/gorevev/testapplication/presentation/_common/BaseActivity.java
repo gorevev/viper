@@ -68,6 +68,7 @@ public abstract class BaseActivity extends MvpAppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        //TODO: почему не использовать здесь Router?
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.content);
 
         if (fragment == null ||

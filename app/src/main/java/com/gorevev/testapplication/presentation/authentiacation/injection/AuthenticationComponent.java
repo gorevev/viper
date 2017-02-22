@@ -1,6 +1,5 @@
 package com.gorevev.testapplication.presentation.authentiacation.injection;
 
-import com.gorevev.testapplication.presentation._common.injection.DomainModule;
 import com.gorevev.testapplication.presentation._common.injection.ScreenScope;
 import com.gorevev.testapplication.presentation.authentiacation.AuthenticationActivity;
 import com.gorevev.testapplication.presentation.authentiacation.confirmSms.ConfirmSMSPresenter;

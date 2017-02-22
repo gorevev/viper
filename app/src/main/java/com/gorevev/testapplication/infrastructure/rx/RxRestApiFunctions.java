@@ -21,10 +21,11 @@ import rx.functions.Func1;
  */
 
 public class RxRestApiFunctions {
-    public static <R>Func1<? super Observable<? extends Throwable>, ? extends Observable<?>> networkNoAvailableRetry(
+    public static <R> Func1<? super Observable<? extends Throwable>, ? extends Observable<?>> networkNoAvailableRetry(
             final Observable<R> toBeResumed, final NetworkConnectionManager networkConnectionManager) {
         return new Func1<Observable<? extends Throwable>, Observable<?>>() {
             private int retriesCount = 0;
+
             @Override
             public Observable<?> call(Observable<? extends Throwable> attempts) {
                 return attempts
@@ -37,8 +38,8 @@ public class RxRestApiFunctions {
                                 }
                             }
 
-                            if(++retriesCount <= networkConnectionManager.getCount()) {
-                                if(!networkConnectionManager.isActiveInternetConnection()) {
+                            if (++retriesCount <= networkConnectionManager.getCount()) {
+                                if (!networkConnectionManager.isActiveInternetConnection()) {
                                     return Observable.timer(networkConnectionManager.getDelay(), TimeUnit.MICROSECONDS);
 
                                 } else {
@@ -58,7 +59,7 @@ public class RxRestApiFunctions {
         if (throwable instanceof HttpException) {
 
             int code = ((HttpException) throwable).code();
-            if(code / 500 == 5) {
+            if (code / 500 == 5) {
                 return Observable.error(new ServerException(throwable));
 
             } else {
@@ -66,11 +67,10 @@ public class RxRestApiFunctions {
 
             }
 
-        } else if(throwable instanceof IOException) {
+        } else if (throwable instanceof IOException) {
 
             return Observable.error(new InternetConnectionException(throwable));
-        }
-        else if (throwable instanceof NetworkErrorException) {
+        } else if (throwable instanceof NetworkErrorException) {
 
             return Observable.error(new InternetConnectionException(throwable));
         }

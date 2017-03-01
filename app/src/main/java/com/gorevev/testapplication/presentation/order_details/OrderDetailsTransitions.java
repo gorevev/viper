@@ -1,4 +1,4 @@
-package com.gorevev.testapplication.presentation.orderdetails;
+package com.gorevev.testapplication.presentation.order_details;
 
 /**
  * Created by denischuvasov on 16.02.17.

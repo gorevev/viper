@@ -1,7 +1,7 @@
 package com.gorevev.testapplication.presentation.authentiacation.injection;
 
 import com.gorevev.testapplication.presentation.authentiacation.AuthenticationRouter;
-import com.gorevev.testapplication.presentation.authentiacation.confirmSms.IConfirmSMSRouter;
+import com.gorevev.testapplication.presentation.authentiacation.confirm_sms.IConfirmSMSRouter;
 import com.gorevev.testapplication.presentation.authentiacation.login.ILoginRouter;
 import com.gorevev.testapplication.presentation.authentiacation.registration.IRegistrationRouter;
 import com.gorevev.testapplication.presentation.authentiacation.startpage.IStartPageRouter;

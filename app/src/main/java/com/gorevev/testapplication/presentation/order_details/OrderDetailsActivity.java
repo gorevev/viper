@@ -1,15 +1,12 @@
-package com.gorevev.testapplication.presentation.orderdetails;
+package com.gorevev.testapplication.presentation.order_details;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 
 import com.gorevev.testapplication.R;
 import com.gorevev.testapplication.infrastructure.App;
 import com.gorevev.testapplication.presentation._common.BaseActivity;
-import com.gorevev.testapplication.presentation._common.BaseNavigator;
 import com.gorevev.testapplication.presentation._common.Layout;
 
 import ru.terrakok.cicerone.Navigator;
@@ -33,8 +30,10 @@ public class OrderDetailsActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         App.getInstance().getOrderDetailsComponent().inject(this);
-        if(savedInstanceState == null) {
+
+        if(getSupportFragmentManager().getBackStackEntryCount() == 0) {
             int orderId = getIntent().getIntExtra(KEY_ORDER_ID, -1);
             router.replaceScreen(OrderDetailsTransitions.ORDER_DETAILS, orderId);
         }

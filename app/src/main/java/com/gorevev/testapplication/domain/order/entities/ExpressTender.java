@@ -1,23 +1,9 @@
 package com.gorevev.testapplication.domain.order.entities;
 
-import java.text.NumberFormat;
-import java.util.Locale;
+import lombok.Getter;
 
-
+@Getter
 public class ExpressTender {
     private double cost;
     private int numberOfBidders;
-
-    public double getCostValue() {
-        return cost;
-    }
-
-    public String getCost() {
-        NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("ru","RU"));
-        return format.format(cost);
-    }
-
-    public int getNumberOfBidders() {
-        return numberOfBidders;
-    }
 }

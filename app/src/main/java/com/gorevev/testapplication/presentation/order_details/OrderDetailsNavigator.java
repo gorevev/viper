@@ -1,4 +1,4 @@
-package com.gorevev.testapplication.presentation.orderdetails;
+package com.gorevev.testapplication.presentation.order_details;
 
 import android.content.Context;
 import android.content.Intent;

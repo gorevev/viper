@@ -2,8 +2,8 @@ package com.gorevev.testapplication.domain.user;
 
 import android.util.Log;
 
-import com.gorevev.testapplication.domain.common.Interactor;
-import com.gorevev.testapplication.domain.common.entities.Response;
+import com.gorevev.testapplication.domain._common.Interactor;
+import com.gorevev.testapplication.domain._common.entities.Response;
 import com.gorevev.testapplication.domain.dictionary.api.IDictionaryAPI;
 import com.gorevev.testapplication.domain.dictionary.entiny.Timezone;
 import com.gorevev.testapplication.domain.dictionary.entiny.TimezoneList;

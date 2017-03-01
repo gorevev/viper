@@ -58,7 +58,7 @@ public class NetworkModule {
         httpClient.addInterceptor(loggingInterceptor);
 
         return new Retrofit.Builder()
-                .baseUrl("http://develop.stand.dev.magdv.com:81/api/v1/")
+                .baseUrl("http://develop.stand.dev.magdv.com/api/v1/")
                 .addConverterFactory(converterFactory)
                 .addCallAdapterFactory(callAdapterFactory)
                 .client(httpClient.build())

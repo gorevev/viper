@@ -1,8 +1,8 @@
-package com.gorevev.testapplication.presentation.orderdetails.injection;
+package com.gorevev.testapplication.presentation.order_details.injection;
 
 import com.gorevev.testapplication.presentation._common.injection.ScreenScope;
-import com.gorevev.testapplication.presentation.orderdetails.OrderDetailsActivity;
-import com.gorevev.testapplication.presentation.orderdetails.OrderDetailsPresenter;
+import com.gorevev.testapplication.presentation.order_details.OrderDetailsActivity;
+import com.gorevev.testapplication.presentation.order_details.OrderDetailsPresenter;
 
 import dagger.Subcomponent;
 
@@ -15,5 +15,4 @@ public interface OrderDetailsComponent {
     void inject(OrderDetailsActivity orderDetailsActivity);
 
     OrderDetailsPresenter orderDetailsPresenter();
-
 }

@@ -1,4 +1,4 @@
-package com.gorevev.testapplication.presentation.authentiacation.confirmSms;
+package com.gorevev.testapplication.presentation.authentiacation.confirm_sms;
 
 import com.gorevev.testapplication.presentation._common.IBaseRouter;
 

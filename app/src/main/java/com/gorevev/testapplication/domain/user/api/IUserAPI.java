@@ -1,7 +1,7 @@
 package com.gorevev.testapplication.domain.user.api;
 
-import com.gorevev.testapplication.domain.common.entities.EmptyResponse;
-import com.gorevev.testapplication.domain.common.entities.Response;
+import com.gorevev.testapplication.domain._common.entities.EmptyResponse;
+import com.gorevev.testapplication.domain._common.entities.Response;
 import com.gorevev.testapplication.domain.user.entities.LoginParams;
 import com.gorevev.testapplication.domain.user.entities.RegUserParams;
 import com.gorevev.testapplication.domain.user.entities.SmsConfirmationCode;

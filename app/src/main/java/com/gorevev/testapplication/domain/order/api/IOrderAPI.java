@@ -2,7 +2,7 @@ package com.gorevev.testapplication.domain.order.api;
 
 import com.gorevev.testapplication.domain.order.entities.OrderContainer;
 import com.gorevev.testapplication.domain.order.entities.OrdersList;
-import com.gorevev.testapplication.domain.common.entities.Response;
+import com.gorevev.testapplication.domain._common.entities.Response;
 
 import java.util.Map;
 

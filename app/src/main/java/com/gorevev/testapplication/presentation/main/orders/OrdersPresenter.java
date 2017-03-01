@@ -38,28 +38,23 @@ public class OrdersPresenter extends BasePresenter<IOrdersView, IOrdersRouter> i
     @Override
     public void loadOrders() {
 
-        if (!getOrdersInteractor.isWorking()) {
+        Map<String, String> parameters = new HashMap<>();
+        parameters.put("page", String.valueOf(page + 1));
 
-            Map<String, String> parameters = new HashMap<>();
-            parameters.put("page", String.valueOf(page + 1));
+        getOrdersInteractor.execute(parameters).subscribe(
+                response -> {
 
-            getOrdersInteractor.execute(parameters).subscribe(
-                    response -> {
+                    page++;
 
-                        page++;
-                        getOrdersInteractor.release();
+                    orders.addOrders(response.getData());
+                    orders.setTotal(response.getData().getTotal());
 
-                        orders.addOrders(response.getData());
-                        orders.setTotal(response.getData().getTotal());
-
-                        getViewState().setOrders(orders.getOrders(), orders.mayBeMore());
-                    },
-                    throwable -> {
-                        getOrdersInteractor.release();
-                        getViewState().showError(throwable.getMessage());
-                    }
-            );
-        }
+                    getViewState().setOrders(orders.getOrders(), orders.mayBeMore());
+                },
+                throwable -> {
+                    getViewState().showError(throwable.getMessage());
+                }
+        );
     }
 
     @Override

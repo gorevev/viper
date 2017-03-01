@@ -1,6 +1,6 @@
 package com.gorevev.testapplication.domain.user;
 
-import com.gorevev.testapplication.domain.common.Interactor;
+import com.gorevev.testapplication.domain._common.Interactor;
 import com.gorevev.testapplication.infrastructure.network.manager.NetworkConnectionManager;
 import com.gorevev.testapplication.presentation._common.injection.DomainModule;
 
@@ -16,10 +16,10 @@ import rx.Scheduler;
  * Created by denischuvasov on 15.02.17.
  */
 
-public class StopwatchInteractor extends Interactor<Long, Integer> {
+public class StopWatchInteractor extends Interactor<Long, Integer> {
 
     @Inject
-    public StopwatchInteractor(@Named(DomainModule.JOB) Scheduler jobScheduler,
+    public StopWatchInteractor(@Named(DomainModule.JOB) Scheduler jobScheduler,
                                @Named(DomainModule.UI) Scheduler uiScheduler,
                                NetworkConnectionManager manager) {
         super(jobScheduler, uiScheduler, manager);

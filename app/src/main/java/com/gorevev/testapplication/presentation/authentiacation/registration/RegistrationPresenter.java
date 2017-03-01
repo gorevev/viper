@@ -14,6 +14,7 @@ import javax.inject.Inject;
 
 @InjectViewState
 public class RegistrationPresenter extends BasePresenter<IRegistrationView, IRegistrationRouter> {
+
     private final RegistrationInteractor interactor;
 
     @Inject
@@ -25,13 +26,15 @@ public class RegistrationPresenter extends BasePresenter<IRegistrationView, IReg
     public void registration(RegUserParams regUserParams) {
         getViewState().showProgress();
         interactor.execute(regUserParams)
-                .subscribe(response->{
-                    getViewState().hideProgress();
-//                    router.showConfirmSmsDialog();
-                    getViewState().showConfirmDialog();
-                }, throwable -> {
-                    getViewState().hideProgress();
-                    getViewState().showError(throwable);
-                });
+                .subscribe(
+                        response->{
+                            getViewState().hideProgress();
+                            getViewState().showConfirmDialog();
+                        },
+                        throwable -> {
+                            getViewState().hideProgress();
+                            getViewState().showError(throwable);
+                        }
+                );
     }
 }

@@ -5,12 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <View
-        android:id="@+id/left_colored_strip"
-        android:layout_width="4dp"
-        android:layout_height="match_parent"
-        />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,7 +30,7 @@
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:maxLines="2"
-                    android:text="@string/default_value"
+                    android:text="@string/order_list_default_value"
                     android:layout_marginRight="32dp"
                     android:textStyle="bold" />
 
@@ -46,7 +40,7 @@
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:maxLines="1"
-                    android:text="@string/default_value"
+                    android:text="@string/order_list_default_value"
                     android:layout_marginRight="32dp"
                     android:layout_marginTop="@dimen/activity_horizontal_margin" />
 
@@ -73,7 +67,7 @@
                         android:textStyle="bold"
                         android:paddingTop="2dp"
                         android:paddingBottom="2dp"
-                        android:text="@string/order_waiting_bid"
+                        android:text="@string/order_list_waiting_bid"
                         android:layout_weight="1"
                         android:gravity="center_vertical"/>
 
@@ -84,15 +78,14 @@
                         android:ellipsize="end"
                         android:maxLines="1"
                         android:maxWidth="150dp"
-                        android:text="@string/default_value"
+                        android:text="@string/order_list_default_value"
                         android:paddingLeft="4dp"
                         android:paddingRight="4dp"
                         android:paddingTop="2dp"
                         android:paddingBottom="2dp"
-
                         android:layout_marginRight="4dp" />
-                </LinearLayout>
 
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -104,6 +97,7 @@
                 app:srcCompat="@drawable/background_favorite_selector"
                 android:padding="4dp"
                 android:layout_gravity="right" />
+
         </FrameLayout>
 
         <LinearLayout
@@ -118,6 +112,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="horizontal">
+
                 <android.support.v7.widget.AppCompatImageView
                     android:id="@+id/win_notification_icon"
                     android:layout_width="wrap_content"
@@ -131,18 +126,19 @@
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:maxLines="1"
-                    android:text="@string/default_value"
+                    android:text="@string/order_list_default_value"
                     android:layout_gravity="center_vertical"
                     android:fontFamily="sans-serif"
                     android:textStyle="bold" />
+
             </LinearLayout>
 
             <android.support.v7.widget.AppCompatButton
-                android:text="@string/order_action_auction_bid"
+                android:text="@string/order_list_action_auction_bid"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:id="@+id/action_button" />
+                android:id="@+id/make_bid" />
 
         </LinearLayout>
 

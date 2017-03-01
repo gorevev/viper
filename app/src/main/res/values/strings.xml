@@ -1,18 +1,15 @@
 <resources>
-    <string name="app_name">Sample</string>
+    <string name="app_name">VIPER Sample</string>
 
+    <!--Exceptions-->
     <string name="exception_repository_put">Не удалось положить данные в хранилище</string>
     <string name="exception_initialization_user">Не удалось получить данные пользователя</string>
 
-    <string name="make_a_bet">Сделать ставку</string>
-
+    <!--Start page-->
     <string name="text_btn_login">Войти</string>
     <string name="text_btn_register">Зарегистрироваться</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_main">MainActivity</string>
-
+    <!--Side menu-->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
@@ -30,9 +27,7 @@
     <string name="confirm_sms_send">Отправить</string>
     <string name="confirm_sms_resend">Запросить код повторно</string>
 
-
     <!-- Order Details -->
-
     <string name="order_details_title" formatted="false">Заказ № %s</string>
     <string name="order_details_order_name">Название</string>
     <string name="order_details_sale_type">Тип торгов</string>
@@ -83,14 +78,14 @@
     <!-- Order List -->
     <string name="order_list_results_count_template">Найдено %1$s %2$s</string>
     <string name="order_list_change_search_params">Изменить параметры поиска</string>
-    <string name="order_cost_format" formatted="false">%d Р</string>
-    <string name="order_action_auction_bid">Сделать ставку</string>
-    <string name="order_action_auction_your_bid">Ваша ставка</string>
-    <string name="order_action_express_bid">Участвовать</string>
-    <string name="order_action_express_bid_mine">Участвуете</string>
-    <string name="order_waiting_start">Ожидает начала</string>
-    <string name="order_waiting_bid">Прием ставок</string>
-    <string name="order_ended">Торги завершены</string>
-    <string name="order_won">Вы победитель</string>
-    <string name="default_value">---</string>
+    <string name="order_list_cost_format" formatted="false">%d Р</string>
+    <string name="order_list_action_auction_bid">Сделать ставку</string>
+    <string name="order_list_action_auction_your_bid">Ваша ставка</string>
+    <string name="order_list_action_express_bid">Участвовать</string>
+    <string name="order_list_action_express_bid_mine">Участвуете</string>
+    <string name="order_list_waiting_start">Ожидает начала</string>
+    <string name="order_list_waiting_bid">Прием ставок</string>
+    <string name="order_list_ended">Торги завершены</string>
+    <string name="order_list_won">Вы победитель</string>
+    <string name="order_list_default_value">---</string>
 </resources>

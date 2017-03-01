@@ -1,6 +1,6 @@
-package com.gorevev.testapplication.domain.common;
+package com.gorevev.testapplication.domain._common;
 
-import com.gorevev.testapplication.domain.common.entities.Response;
+import com.gorevev.testapplication.domain._common.entities.Response;
 import com.gorevev.testapplication.infrastructure.network.manager.NetworkConnectionManager;
 import com.gorevev.testapplication.infrastructure.rx.RxRestApiFunctions;
 
@@ -14,8 +14,6 @@ import rx.subscriptions.CompositeSubscription;
  */
 
 public abstract class Interactor<ResultType, ParameterType> {
-
-    private boolean working = false;
 
     private final CompositeSubscription subscriptions = new CompositeSubscription();
 
@@ -33,8 +31,6 @@ public abstract class Interactor<ResultType, ParameterType> {
 
     public Observable<ResultType> execute(ParameterType parameter) {
 
-        working = true;
-
         return buildObservable(parameter)
                 .subscribeOn(jobScheduler)
                 .observeOn(uiScheduler);
@@ -50,14 +46,6 @@ public abstract class Interactor<ResultType, ParameterType> {
 
     public void unsubscribe() {
         subscriptions.clear();
-    }
-
-    public boolean isWorking() {
-        return working;
-    }
-
-    public void release() {
-        working = false;
     }
 
     protected <T extends Response<?>> Observable.Transformer<T, T> convert() {

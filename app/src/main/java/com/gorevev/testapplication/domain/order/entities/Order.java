@@ -7,10 +7,13 @@ import java.lang.annotation.RetentionPolicy;
 import java.text.NumberFormat;
 import java.util.Locale;
 
+import lombok.Data;
+
 /**
  * Created by e.gorev on 01.02.2017.
  */
 
+@Data
 public class Order {
 
     public static final String DEFAULT_VALUE = "---";
@@ -28,9 +31,7 @@ public class Order {
     private int id;
     private int biddingId;
     private int statusId;
-    private
-    @CashType
-    int paymentTypeId;
+    private @CashType int paymentTypeId;
     private int serialNumber;
     private boolean withVAT;
     private String loadingTime;
@@ -54,111 +55,8 @@ public class Order {
     private boolean isWinnerChosen;
     private boolean isWonByMe;
 
-    public Order() {
-
-    }
-
-    public Order(int id) {
-        this.id = id;
-        this.empty = true;
-    }
-
-    public boolean isEmpty() {
-        return empty;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public int getBiddingId() {
-        return biddingId;
-    }
-
-    public int getStatusId() {
-        return statusId;
-    }
-
-    public
-    @CashType
-    int getPaymentTypeId() {
+    public @CashType int getPaymentTypeId() {
         return paymentTypeId;
-    }
-
-    public int getSerialNumber() {
-        return serialNumber;
-    }
-
-    public boolean withVAT() {
-        return withVAT;
-    }
-
-    public String getLoadingTime() {
-        return loadingTime;
-    }
-
-    public String getUnloadingTime() {
-        return unloadingTime;
-    }
-
-    public int getTruckTypeId() {
-        return truckTypeId;
-    }
-
-    public int getCargoTypeId() {
-        return cargoTypeId;
-    }
-
-    public double getCargoWeight() {
-        return cargoWeight;
-    }
-
-    public int getCubicCapacityValue() {
-        return cubicCapacityValue;
-    }
-
-    public int getLoadingTypeId() {
-        return loadingTypeId;
-    }
-
-    public String getComment() {
-        return comment;
-    }
-
-    public Integer getExternalId() {
-        return externalId;
-    }
-
-    public int getBidsCount() {
-        return bidsCount;
-    }
-
-    public Bidding getBidding() {
-        return bidding;
-    }
-
-    public Point getDeparturePoint() {
-        return departurePoint;
-    }
-
-    public Point getDestinationPoint() {
-        return destinationPoint;
-    }
-
-    public Bid getBetterBid() {
-        return betterBid;
-    }
-
-    public Auction getAuction() {
-        return auction;
-    }
-
-    public ExpressTender getExpressTender() {
-        return expressTender;
-    }
-
-    public Bid getCurrentClientBid() {
-        return lastClientBid;
     }
 
     public boolean isAuction() {
@@ -167,14 +65,6 @@ public class Order {
 
     public boolean isExpress() {
         return bidding != null && bidding.getBiddingTypeId() == Bidding.TYPE_EXPRESS;
-    }
-
-    public boolean isFavorite() {
-        return isFavorite;
-    }
-
-    public void setFavorite(boolean favorite) {
-        this.isFavorite = favorite;
     }
 
     public String getOrderNumberString() {
@@ -187,7 +77,7 @@ public class Order {
         } else if (auction != null) {
             return (int) auction.getOpeningBid();
         } else if (expressTender != null) {
-            return (int) expressTender.getCostValue();
+            return (int) expressTender.getCost();
         }
         return -1;
     }
@@ -205,11 +95,7 @@ public class Order {
         return lastClientBid != null && betterBid != null && lastClientBid.getId() == betterBid.getId();
     }
 
-    public boolean isWinnerChosen() {
-        return isWinnerChosen;
-    }
-
-    public boolean winOrder() {
-        return isWonByMe;
+    public boolean canMakeBid() {
+        return isWonByMe() || getBidding().getActualStatus() == Bidding.STATUS_ENDED;
     }
 }

@@ -36,12 +36,12 @@ public class MainRouter implements IOrdersRouter, IMainRouter {
 
     @Override
     public void showFavoritesOrders() {
-
+        //TODO show favorites orders
     }
 
     @Override
     public void showSearchOrders() {
-
+        //TODO show search orders
     }
 
     @Override

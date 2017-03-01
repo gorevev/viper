@@ -9,10 +9,8 @@ import com.gorevev.testapplication.presentation.authentiacation.injection.Authen
 import com.gorevev.testapplication.presentation.authentiacation.injection.AuthenticationModule;
 import com.gorevev.testapplication.presentation.main.injection.MainComponent;
 import com.gorevev.testapplication.presentation.main.injection.MainModule;
-import com.gorevev.testapplication.presentation.main.orders.injection.OrdersComponent;
-import com.gorevev.testapplication.presentation.main.orders.injection.OrdersModule;
-import com.gorevev.testapplication.presentation.orderdetails.injection.OrderDetailsComponent;
-import com.gorevev.testapplication.presentation.orderdetails.injection.OrderDetailsModule;
+import com.gorevev.testapplication.presentation.order_details.injection.OrderDetailsComponent;
+import com.gorevev.testapplication.presentation.order_details.injection.OrderDetailsModule;
 import com.gorevev.testapplication.presentation.splash.injection.SplashComponent;
 import com.gorevev.testapplication.presentation.splash.injection.SplashModule;
 
@@ -27,7 +25,6 @@ public class App extends Application {
     private AppComponent appComponent;
     private SplashComponent splashComponent;
     private AuthenticationComponent authenticationComponent;
-    private OrdersComponent ordersComponent;
     private OrderDetailsComponent orderDetailsComponent;
     private MainComponent mainComponent;
 
@@ -62,14 +59,6 @@ public class App extends Application {
         return authenticationComponent;
     }
 
-    public OrdersComponent getOrdersComponent() {
-
-        if (ordersComponent == null)
-            ordersComponent = appComponent.plus(new OrdersModule());
-
-        return ordersComponent;
-    }
-
     public MainComponent getMainComponent() {
         if(mainComponent == null) {
             mainComponent = appComponent.plus(new MainModule());
@@ -94,7 +83,11 @@ public class App extends Application {
         authenticationComponent = null;
     }
 
-    public void releaseRoutesListComponent() {
-        ordersComponent = null;
+    public void releaseMainComponent() {
+        mainComponent = null;
+    }
+
+    public void releaseOrderDelailsComponent() {
+        orderDetailsComponent = null;
     }
 }

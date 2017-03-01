@@ -1,5 +1,8 @@
 package com.gorevev.testapplication.domain.order.entities;
 
+import lombok.Getter;
+
+@Getter
 public class Point {
     private int id;
     private int clientId;
@@ -8,32 +11,4 @@ public class Point {
     private String address;
     private String code;
     private String localityName;
-
-    public int getId() {
-        return id;
-    }
-
-    public int getClientId() {
-        return clientId;
-    }
-
-    public int getClientNumber() {
-        return clientNumber;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public String getLocalityName() {
-        return localityName;
-    }
 }

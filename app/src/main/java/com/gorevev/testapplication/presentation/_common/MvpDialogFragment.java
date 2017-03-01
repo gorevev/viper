@@ -12,10 +12,10 @@ import com.arellomobile.mvp.MvpDelegate;
  * @author Konstantin Tckhovrebov
  */
 @SuppressWarnings({"ConstantConditions", "unused"})
-public class MvpAppCompatDialogFragment extends AppCompatDialogFragment {
+public class MvpDialogFragment extends AppCompatDialogFragment {
 
     private boolean mIsStateSaved;
-    private MvpDelegate<? extends MvpAppCompatDialogFragment> mMvpDelegate;
+    private MvpDelegate<? extends MvpDialogFragment> mMvpDelegate;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

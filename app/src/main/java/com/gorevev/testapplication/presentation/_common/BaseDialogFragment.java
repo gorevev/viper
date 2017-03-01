@@ -18,13 +18,15 @@ import butterknife.Unbinder;
  * Created by denischuvasov on 14.02.17.
  */
 
-public class BaseDialogFragment extends MvpAppCompatDialogFragment implements IBackButtonListener {
+public class BaseDialogFragment extends MvpDialogFragment implements IBackButtonListener {
+
     protected Unbinder unbinder;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Logger.d(name(), "onCreateView() called with: inflater = [" + inflater + "], container = [" + container + "], savedInstanceState = [" + savedInstanceState + "]");
+
         Class cls = getClass();
         if (!cls.isAnnotationPresent(Layout.class))
             return null;
@@ -52,8 +54,10 @@ public class BaseDialogFragment extends MvpAppCompatDialogFragment implements IB
     @Override
     public void onDestroyView() {
         Logger.d(name(), "onDestroyView() called");
+
         if(unbinder != null)
             unbinder.unbind();
+
         super.onDestroyView();
     }
 

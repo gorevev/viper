@@ -2,6 +2,9 @@ package com.gorevev.testapplication.domain.order.entities;
 
 import java.io.Serializable;
 
+import lombok.Getter;
+
+@Getter
 public class ClientInfo implements Serializable {
     private int id;
     private int ownerId;
@@ -13,44 +16,4 @@ public class ClientInfo implements Serializable {
     private Float ratingAvgConsignor;
     private Float ratingAvgCarrier;
     private CompanyInfo company;
-
-    public int getId() {
-        return id;
-    }
-
-    public int getOwnerId() {
-        return ownerId;
-    }
-
-    public int getLegalStatusId() {
-        return legalStatusId;
-    }
-
-    public Float getRatingObservance() {
-        return ratingObservance;
-    }
-
-    public Float getRatingQuality() {
-        return ratingQuality;
-    }
-
-    public Float getRatingLoading() {
-        return ratingLoading;
-    }
-
-    public Float getRatingPayment() {
-        return ratingPayment;
-    }
-
-    public Float getRatingAvgConsignor() {
-        return ratingAvgConsignor;
-    }
-
-    public Float getRatingAvgCarrier() {
-        return ratingAvgCarrier;
-    }
-
-    public CompanyInfo getCompany() {
-        return company;
-    }
 }

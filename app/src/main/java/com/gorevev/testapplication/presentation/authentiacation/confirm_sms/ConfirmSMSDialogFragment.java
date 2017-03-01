@@ -1,4 +1,4 @@
-package com.gorevev.testapplication.presentation.authentiacation.confirmSms;
+package com.gorevev.testapplication.presentation.authentiacation.confirm_sms;
 
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
@@ -43,20 +43,14 @@ public class ConfirmSMSDialogFragment extends BaseDialogFragment implements ICon
         return new ConfirmSMSDialogFragment();
     }
 
-    public ConfirmSMSDialogFragment() {
-        // Required empty public constructor
+    @OnClick(R.id.btn_confirm_dialog_send)
+    public void onSendClick() {
+        presenter.confirmCode(evConfirmationCode.getText().toString());
     }
 
-    @OnClick({R.id.ev_confirm_dialog_confirmation_code, R.id.btn_confirm_dialog_send, R.id.btn_confirm_dialog_resend})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btn_confirm_dialog_send:
-                presenter.confirmCode(evConfirmationCode.getText().toString());
-                break;
-            case R.id.btn_confirm_dialog_resend:
-                presenter.resendConfirmCode();
-                break;
-        }
+    @OnClick(R.id.btn_confirm_dialog_resend)
+    public void onResendClick() {
+        presenter.resendConfirmCode();
     }
 
     @Override

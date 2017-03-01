@@ -1,6 +1,6 @@
 package com.gorevev.testapplication.domain.dictionary.api;
 
-import com.gorevev.testapplication.domain.common.entities.Response;
+import com.gorevev.testapplication.domain._common.entities.Response;
 import com.gorevev.testapplication.domain.dictionary.entiny.TimezoneList;
 
 import retrofit2.http.GET;

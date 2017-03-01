@@ -10,7 +10,5 @@ public interface ILoginRouter extends IBaseRouter {
 
     void showRegistration();
 
-    void showPasswordRecovery();
-
     void showMainScreen();
 }

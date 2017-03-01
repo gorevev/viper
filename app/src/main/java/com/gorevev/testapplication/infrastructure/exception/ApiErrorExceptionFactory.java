@@ -3,7 +3,7 @@ package com.gorevev.testapplication.infrastructure.exception;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
-import com.gorevev.testapplication.domain.common.entities.ErrorResponse;
+import com.gorevev.testapplication.domain._common.entities.ErrorResponse;
 
 import java.io.IOException;
 import java.nio.charset.Charset;

@@ -7,7 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 
 import com.gorevev.testapplication.presentation._common.BaseNavigator;
-import com.gorevev.testapplication.presentation.authentiacation.confirmSms.ConfirmSMSDialogFragment;
+import com.gorevev.testapplication.presentation.authentiacation.confirm_sms.ConfirmSMSDialogFragment;
 import com.gorevev.testapplication.presentation.authentiacation.login.LoginFragment;
 import com.gorevev.testapplication.presentation.authentiacation.registration.RegistrationFragment;
 import com.gorevev.testapplication.presentation.authentiacation.startpage.StartPageFragment;

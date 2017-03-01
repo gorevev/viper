@@ -1,4 +1,4 @@
-package com.gorevev.testapplication.presentation.authentiacation.confirmSms;
+package com.gorevev.testapplication.presentation.authentiacation.confirm_sms;
 
 import com.arellomobile.mvp.MvpView;
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy;

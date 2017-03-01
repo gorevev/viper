@@ -1,4 +1,4 @@
-package com.gorevev.testapplication.presentation.orderdetails;
+package com.gorevev.testapplication.presentation.order_details;
 
 import com.gorevev.testapplication.presentation._common.IBaseRouter;
 

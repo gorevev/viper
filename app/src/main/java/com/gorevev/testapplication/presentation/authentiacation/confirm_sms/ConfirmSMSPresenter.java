@@ -1,11 +1,11 @@
-package com.gorevev.testapplication.presentation.authentiacation.confirmSms;
+package com.gorevev.testapplication.presentation.authentiacation.confirm_sms;
 
 import android.util.Log;
 
 import com.arellomobile.mvp.InjectViewState;
 import com.gorevev.testapplication.domain.user.ConfirmSMSInteractor;
 import com.gorevev.testapplication.domain.user.ResendSMSInteractor;
-import com.gorevev.testapplication.domain.user.StopwatchInteractor;
+import com.gorevev.testapplication.domain.user.StopWatchInteractor;
 import com.gorevev.testapplication.domain.user.entities.SmsConfirmationCode;
 import com.gorevev.testapplication.presentation._common.BasePresenter;
 
@@ -23,13 +23,13 @@ public class ConfirmSMSPresenter extends BasePresenter<IConfirmSMSView, IConfirm
 
     private final ConfirmSMSInteractor interactor;
     private final ResendSMSInteractor resendSMSInteractor;
-    private final StopwatchInteractor stopwatchInteractor;
+    private final StopWatchInteractor stopwatchInteractor;
 
     @Inject
     public ConfirmSMSPresenter(IConfirmSMSRouter router,
                                ConfirmSMSInteractor interactor,
                                ResendSMSInteractor resendSMSInteractor,
-                               StopwatchInteractor stopwatchInteractor) {
+                               StopWatchInteractor stopwatchInteractor) {
         this.interactor = interactor;
         this.resendSMSInteractor = resendSMSInteractor;
         this.stopwatchInteractor = stopwatchInteractor;

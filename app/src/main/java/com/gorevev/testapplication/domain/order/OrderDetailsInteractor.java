@@ -1,8 +1,8 @@
 package com.gorevev.testapplication.domain.order;
 
 
-import com.gorevev.testapplication.domain.common.Interactor;
-import com.gorevev.testapplication.domain.common.entities.Response;
+import com.gorevev.testapplication.domain._common.Interactor;
+import com.gorevev.testapplication.domain._common.entities.Response;
 import com.gorevev.testapplication.domain.order.api.IOrderAPI;
 import com.gorevev.testapplication.domain.order.entities.OrderContainer;
 import com.gorevev.testapplication.infrastructure.network.manager.NetworkConnectionManager;

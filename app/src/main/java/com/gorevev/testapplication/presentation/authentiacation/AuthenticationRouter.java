@@ -1,6 +1,6 @@
 package com.gorevev.testapplication.presentation.authentiacation;
 
-import com.gorevev.testapplication.presentation.authentiacation.confirmSms.IConfirmSMSRouter;
+import com.gorevev.testapplication.presentation.authentiacation.confirm_sms.IConfirmSMSRouter;
 import com.gorevev.testapplication.presentation.authentiacation.login.ILoginRouter;
 import com.gorevev.testapplication.presentation.authentiacation.registration.IRegistrationRouter;
 import com.gorevev.testapplication.presentation.authentiacation.startpage.IStartPageRouter;
@@ -30,11 +30,6 @@ public class AuthenticationRouter implements IStartPageRouter, ILoginRouter, IRe
     @Override
     public void showRegistration() {
         router.navigateTo(AuthTransitions.REGISTRATION);
-    }
-
-    @Override
-    public void showPasswordRecovery() {
-        router.navigateTo(AuthTransitions.PASSWORD_RECOVERY);
     }
 
     @Override

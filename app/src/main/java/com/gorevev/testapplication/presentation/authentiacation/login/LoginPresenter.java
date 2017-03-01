@@ -35,12 +35,10 @@ public class LoginPresenter extends BasePresenter<ILoginView, ILoginRouter> {
                         user -> {
                             getViewState().loggedIn();
                             getRouter().showMainScreen();
-                            loginInteractor.release();
                         },
                         throwable -> {
                             getViewState().hideProgress();
                             handleError(throwable);
-                            loginInteractor.release();
                         }
                 );
     }

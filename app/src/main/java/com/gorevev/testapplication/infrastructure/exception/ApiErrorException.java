@@ -1,6 +1,6 @@
 package com.gorevev.testapplication.infrastructure.exception;
 
-import com.gorevev.testapplication.domain.common.entities.ErrorResponse;
+import com.gorevev.testapplication.domain._common.entities.ErrorResponse;
 
 /**
  * Created by denischuvasov on 20.02.17.

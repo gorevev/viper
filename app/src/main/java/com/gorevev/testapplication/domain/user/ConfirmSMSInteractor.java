@@ -1,12 +1,9 @@
 package com.gorevev.testapplication.domain.user;
 
-import com.gorevev.testapplication.domain.common.Interactor;
-import com.gorevev.testapplication.domain.common.entities.EmptyResponse;
-import com.gorevev.testapplication.domain.common.entities.Response;
+import com.gorevev.testapplication.domain._common.Interactor;
+import com.gorevev.testapplication.domain._common.entities.EmptyResponse;
 import com.gorevev.testapplication.domain.user.api.IUserAPI;
-import com.gorevev.testapplication.domain.user.entities.LoginParams;
 import com.gorevev.testapplication.domain.user.entities.SmsConfirmationCode;
-import com.gorevev.testapplication.domain.user.entities.Token;
 import com.gorevev.testapplication.infrastructure.network.manager.NetworkConnectionManager;
 import com.gorevev.testapplication.presentation._common.injection.DomainModule;
 

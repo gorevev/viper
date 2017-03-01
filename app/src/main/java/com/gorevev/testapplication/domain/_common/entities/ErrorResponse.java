@@ -1,4 +1,4 @@
-package com.gorevev.testapplication.domain.common.entities;
+package com.gorevev.testapplication.domain._common.entities;
 
 import java.util.Iterator;
 

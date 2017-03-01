@@ -30,20 +30,10 @@ public class SplashActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         App.getInstance().getSplashComponent().inject(this);
+
         if (getSupportFragmentManager().getBackStackEntryCount() == 0)
             router.replaceScreen(SplashTransitions.START_PAGE);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        navigatorHolder.setNavigator(navigator);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        navigatorHolder.removeNavigator();
     }
 }

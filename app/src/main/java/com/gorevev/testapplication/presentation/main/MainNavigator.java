@@ -9,7 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.gorevev.testapplication.presentation._common.BaseNavigator;
 import com.gorevev.testapplication.presentation.authentiacation.AuthenticationActivity;
 import com.gorevev.testapplication.presentation.main.orders.OrdersFragment;
-import com.gorevev.testapplication.presentation.orderdetails.OrderDetailsActivity;
+import com.gorevev.testapplication.presentation.order_details.OrderDetailsActivity;
 
 /**
  * Created by denischuvasov on 10.02.17.

@@ -1,11 +1,12 @@
 package com.gorevev.testapplication.domain.user.entities;
 
-import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
 
 /**
  * Created by e.gorev on 30.01.2017.
  */
 
+@Getter
 public class LoginParams {
 
     private String login;
@@ -15,22 +16,6 @@ public class LoginParams {
     public LoginParams(String login, String password) {
 
         this.login = login;
-        this.password = password;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
         this.password = password;
     }
 }

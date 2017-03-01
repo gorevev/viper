@@ -43,7 +43,7 @@ public class OrdersFragment extends BaseFragment implements
 
     @ProvidePresenter
     OrdersPresenter providePresenter() {
-        return App.getInstance().getOrdersComponent().ordersPresenter();
+        return App.getInstance().getMainComponent().ordersPresenter();
     }
 
     public static Fragment newInstance() {

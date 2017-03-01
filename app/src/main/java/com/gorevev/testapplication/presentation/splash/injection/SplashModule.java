@@ -15,9 +15,6 @@ import ru.terrakok.cicerone.Router;
 @Module
 public class SplashModule {
 
-    public SplashModule() {
-    }
-
     @Provides
     @ScreenScope
     ISplashRouter providesRouter(Router router) {

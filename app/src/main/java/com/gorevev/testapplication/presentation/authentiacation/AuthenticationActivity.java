@@ -29,10 +29,9 @@ public class AuthenticationActivity extends BaseActivity {
 
         App.getInstance().getAuthenticationComponent().inject(this);
 
+        //TODO make switching between start page and login on start context
         if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
             router.replaceScreen(AuthTransitions.START_PAGE);
         }
     }
-
-
 }

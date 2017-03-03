@@ -1,5 +1,6 @@
 package com.gorevev.testapplication.presentation.authentiacation.login;
 
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.Button;
@@ -75,6 +76,11 @@ public class LoginFragment extends BaseFragment implements ILoginView {
     @Override
     public void showError(String message) {
         Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void showUnauthenticatedError() {
+        Snackbar.make(getView(), getString(R.string.login_unauthenticated_exception), Snackbar.LENGTH_LONG);
     }
 
     @OnClick(R.id.button_login)

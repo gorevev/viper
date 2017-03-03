@@ -54,7 +54,7 @@ public class LoginPresenter extends BasePresenter<ILoginView, ILoginRouter> {
     @Override
     protected void handleError(Throwable throwable) {
         if(throwable instanceof UnauthenticatedException) {
-            getViewState().showError("Неверный логин или пароль");
+            getViewState().showUnauthenticatedError();
         } else {
             super.handleError(throwable);
         }

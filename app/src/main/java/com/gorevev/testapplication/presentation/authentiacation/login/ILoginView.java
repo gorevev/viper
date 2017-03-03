@@ -15,4 +15,6 @@ public interface ILoginView extends MvpView {
     void loggedIn();
 
     void showError(String message);
+
+    void showUnauthenticatedError();
 }

@@ -110,17 +110,17 @@ public class OrderView extends FrameLayout {
     }
 
     private String getStatusText() {
-        int stringResId = R.string.order_list_waiting_start;
+        int stringResId = R.string.orders_order_item_waiting_start;
 
         switch (order.getBidding().getActualStatus()) {
             case Bidding.STATUS_WAITING_START:
-                stringResId = R.string.order_list_waiting_start;
+                stringResId = R.string.orders_order_item_waiting_start;
                 break;
             case Bidding.STATUS_WAITING_BID:
-                stringResId = R.string.order_list_waiting_bid;
+                stringResId = R.string.orders_order_item_waiting_bid;
                 break;
             case Bidding.STATUS_ENDED:
-                stringResId = order.isWonByMe() ? R.string.order_list_won : R.string.order_list_ended;
+                stringResId = order.isWonByMe() ? R.string.orders_order_item_won : R.string.orders_order_item_ended;
                 break;
         }
 
@@ -130,23 +130,23 @@ public class OrderView extends FrameLayout {
     private int getActionButtonNameByStatus() {
         if(order.isAuction()) {
             return order.getLastClientBid() == null
-                    ? R.string.order_list_action_auction_bid
-                    : R.string.order_list_action_auction_your_bid;
+                    ? R.string.orders_order_item_action_auction_bid
+                    : R.string.orders_order_item_action_auction_your_bid;
         } else if(order.getLastClientBid() != null) {
-            return R.string.order_list_action_express_bid_mine;
+            return R.string.orders_order_item_action_express_bid_mine;
         } else {
-            return R.string.order_list_action_express_bid;
+            return R.string.orders_order_item_action_express_bid;
         }
     }
 
     private int getTypeString(@Bidding.BiddingType int biddingTypeId) {
         switch (biddingTypeId) {
             case Bidding.TYPE_AUCTION:
-                return R.string.order_view_auction;
+                return R.string.orders_order_item_auction;
             case Bidding.TYPE_EXPRESS:
-                return R.string.order_view_express;
+                return R.string.orders_order_item_express;
             default:
-                return R.string.order_view_auction;
+                return R.string.orders_order_item_auction;
         }
     }
 }

@@ -6,8 +6,10 @@ import com.arellomobile.mvp.MvpView;
 import com.gorevev.testapplication.presentation._common.resolution.IThrowableResolver;
 
 public abstract class BasePresenter<View extends MvpView, Router extends IBaseRouter> extends MvpPresenter<View> {
+
     protected Router router;
     private IThrowableResolver resolver;
+
     public void setRouter(Router router) {
         this.router = router;
     }

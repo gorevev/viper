@@ -39,7 +39,7 @@ public class RegistrationFragment extends BaseFragment implements IRegistrationV
     @BindView(R.id.individual_entrepreneur)
     RadioButton rbIndividualEntrepreneur;
 
-    @BindView(R.id.registration)
+    @BindView(R.id.button_registration)
     Button btnRegistration;
 
     @InjectPresenter
@@ -54,7 +54,7 @@ public class RegistrationFragment extends BaseFragment implements IRegistrationV
         return new RegistrationFragment();
     }
 
-    @OnClick(R.id.registration)
+    @OnClick(R.id.button_registration)
     void onRegistrationClick() {
 
         RegUserParams params = RegUserParams.builder()

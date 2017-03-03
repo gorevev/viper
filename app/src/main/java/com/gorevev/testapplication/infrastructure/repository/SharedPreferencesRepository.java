@@ -26,7 +26,7 @@ public class SharedPreferencesRepository implements IRepository {
     @Override
     public void put(String key, Object object) throws RepositoryException {
         if (!sharedPreferences.edit().putString(key, serializer.deserialize(object)).commit())
-            throw new RepositoryException(context.getString(R.string.exception_repository_put));
+            throw new RepositoryException(context.getString(R.string.repository_put_exception));
     }
 
     @Override

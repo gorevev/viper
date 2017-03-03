@@ -15,8 +15,8 @@ import retrofit2.adapter.rxjava.HttpException;
  */
 
 public final class ApiErrorExceptionFactory {
-    private ApiErrorExceptionFactory() {
 
+    private ApiErrorExceptionFactory() {
     }
 
     public static Throwable fromHttpException(final HttpException httpException) {
@@ -30,7 +30,7 @@ public final class ApiErrorExceptionFactory {
                     return new ApiErrorException(httpException.code(), errorResponse, httpException);
                 }
                 case 401:
-                    return new UnauthorizedException(httpException);
+                    return new UnauthenticatedException(httpException);
                 case 404:
                     return new NotFoundException(httpException);
                 case 426:

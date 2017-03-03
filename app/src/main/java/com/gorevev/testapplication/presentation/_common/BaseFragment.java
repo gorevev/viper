@@ -1,6 +1,7 @@
 package com.gorevev.testapplication.presentation._common;
 
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,7 @@ public abstract class BaseFragment extends MvpAppCompatFragment implements IBack
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Logger.d(name(), "onCreateView() called with: inflater = [" + inflater + "], container = [" + container + "], savedInstanceState = [" + savedInstanceState + "]");
+
         Class cls = getClass();
         if (!cls.isAnnotationPresent(Layout.class))
             return null;
@@ -46,8 +48,10 @@ public abstract class BaseFragment extends MvpAppCompatFragment implements IBack
     @Override
     public void onDestroyView() {
         Logger.d(name(), "onDestroyView() called");
+
         if(unbinder != null)
             unbinder.unbind();
+
         super.onDestroyView();
     }
 
@@ -68,5 +72,9 @@ public abstract class BaseFragment extends MvpAppCompatFragment implements IBack
 
     public IThrowableResolver getThrowableResolver() {
         return resolver;
+    }
+
+    public void showSnackbar(String message) {
+        Snackbar.make(getView(), message, Snackbar.LENGTH_LONG);
     }
 }

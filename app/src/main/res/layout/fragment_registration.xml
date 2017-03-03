@@ -12,7 +12,7 @@
             android:id="@+id/surname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Фамилия"
+            android:hint="@string/registration_surname"
             android:text="Test"/>
 
         <EditText
@@ -20,27 +20,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Test"
-            android:hint="Имя"/>
+            android:hint="@string/registration_name"/>
 
         <EditText
             android:id="@+id/phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Телефон"
+            android:hint="@string/registration_phone"
             android:text="+79528002032"/>
 
         <EditText
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Емайл"
+            android:hint="@string/registration_email"
             android:text="t@t.t"/>
 
         <EditText
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Пароль"
+            android:hint="@string/registration_password"
             android:text="123456"/>
 
         <RadioGroup
@@ -52,21 +52,21 @@
                 android:id="@+id/individual_entrepreneur"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ИП"
+                android:text="@string/registration_legal_status_individual_entrepreneur"
                 android:checked="true"/>
 
             <RadioButton
                 android:id="@+id/legal_entity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Юр лицо"/>
+                android:text="@string/registration_legal_status_legal_entity"/>
         </RadioGroup>
 
         <Button
-            android:id="@+id/registration"
+            android:id="@+id/button_registration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Регистрация"/>
+            android:text="@string/authentication_button_register"/>
 
     </LinearLayout>
 

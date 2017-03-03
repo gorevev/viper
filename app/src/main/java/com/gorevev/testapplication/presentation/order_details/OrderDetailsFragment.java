@@ -23,8 +23,8 @@ public class OrderDetailsFragment extends BaseFragment implements IOrderDetailsV
     @BindView(R.id.order)
     OrderView orderView;
 
-    @BindView(R.id.progressbar)
-    View progressbarView;
+    @BindView(R.id.progress)
+    View progressView;
 
     @InjectPresenter
     OrderDetailsPresenter presenter;
@@ -57,12 +57,12 @@ public class OrderDetailsFragment extends BaseFragment implements IOrderDetailsV
 
     @Override
     public void showProgress() {
-        progressbarView.setVisibility(View.VISIBLE);
+        progressView.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideProgress() {
-        progressbarView.setVisibility(View.GONE);
+        progressView.setVisibility(View.GONE);
     }
 
     @Override

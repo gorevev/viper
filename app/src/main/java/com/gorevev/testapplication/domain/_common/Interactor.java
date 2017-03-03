@@ -5,6 +5,7 @@ import com.gorevev.testapplication.infrastructure.network.manager.NetworkConnect
 import com.gorevev.testapplication.infrastructure.rx.RxRestApiFunctions;
 
 import rx.Observable;
+import rx.Observable.Transformer;
 import rx.Scheduler;
 import rx.Subscription;
 import rx.subscriptions.CompositeSubscription;
@@ -48,8 +49,9 @@ public abstract class Interactor<ResultType, ParameterType> {
         subscriptions.clear();
     }
 
-    protected <T extends Response<?>> Observable.Transformer<T, T> convert() {
-        return observable -> observable.onBackpressureDrop().subscribeOn(jobScheduler)
+    protected <T extends Response<?>> Transformer<T, T> convert() {
+        return observable -> observable.onBackpressureDrop()
+                .subscribeOn(jobScheduler)
                 .retryWhen(RxRestApiFunctions.networkNoAvailableRetry(observable, manager));
     }
 }

@@ -3,7 +3,7 @@ package com.gorevev.testapplication.presentation.authentiacation.login;
 import com.arellomobile.mvp.InjectViewState;
 import com.gorevev.testapplication.domain.user.LoginInteractor;
 import com.gorevev.testapplication.domain.user.entities.LoginParams;
-import com.gorevev.testapplication.infrastructure.exception.UnauthorizedException;
+import com.gorevev.testapplication.infrastructure.exception.UnauthenticatedException;
 import com.gorevev.testapplication.presentation._common.BasePresenter;
 
 import javax.inject.Inject;
@@ -53,7 +53,7 @@ public class LoginPresenter extends BasePresenter<ILoginView, ILoginRouter> {
 
     @Override
     protected void handleError(Throwable throwable) {
-        if(throwable instanceof UnauthorizedException) {
+        if(throwable instanceof UnauthenticatedException) {
             getViewState().showError("Неверный логин или пароль");
         } else {
             super.handleError(throwable);

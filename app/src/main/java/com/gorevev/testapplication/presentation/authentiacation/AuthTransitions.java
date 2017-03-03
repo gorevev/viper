@@ -13,7 +13,5 @@ public interface AuthTransitions {
 
     String SMS_CONFIRM = "sms_confirm";
 
-    String PASSWORD_RECOVERY = "password_recovery";
-
     String MAIN_SCREEN = "main_screen";
 }

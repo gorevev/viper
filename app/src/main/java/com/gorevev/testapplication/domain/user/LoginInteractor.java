@@ -43,7 +43,7 @@ public class LoginInteractor extends Interactor<Response<Token>, LoginParams> {
     @Override
     protected Observable<Response<Token>> buildObservable(LoginParams parameters) {
         return service.login(parameters)
-                .compose(convert())
+                //.compose(convert())
                 .map(response -> {
 
                     try {

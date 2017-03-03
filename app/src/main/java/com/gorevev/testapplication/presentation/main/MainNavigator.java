@@ -38,7 +38,6 @@ public class MainNavigator extends BaseNavigator {
         switch (screenKey) {
             case MainTransitions.ORDERS:
                 return OrdersFragment.newInstance();
-
         }
 
         return null;

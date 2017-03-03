@@ -7,6 +7,7 @@ import com.gorevev.testapplication.domain._common.entities.ErrorResponse;
  */
 
 public class ApiErrorException extends RuntimeException {
+
     private final ErrorResponse errors;
     private final int httpCode;
 

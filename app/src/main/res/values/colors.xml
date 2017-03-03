@@ -4,4 +4,6 @@
 
     <color name="default_text">#000000</color>
     <color name="colorAccent">#dddddd</color>
+
+    <color name="progress_background">#FFFFFF</color>
 </resources>

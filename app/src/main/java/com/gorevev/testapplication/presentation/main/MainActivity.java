@@ -22,8 +22,7 @@ import butterknife.BindView;
 import ru.terrakok.cicerone.Navigator;
 
 @Layout(R.layout.activity_main)
-public class MainActivity extends BaseActivity
-        implements NavigationView.OnNavigationItemSelectedListener, IMainView {
+public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener, IMainView {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -77,7 +76,7 @@ public class MainActivity extends BaseActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.side_menu_item_search_orders) {
+        if (id == R.id.side_menu_item_orders) {
             presenter.showOrders();
         } else if (id == R.id.side_menu_item_search_orders) {
             presenter.showSearchOrders();

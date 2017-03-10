@@ -52,6 +52,6 @@ public abstract class Interactor<ResultType, ParameterType> {
     protected <T extends Response<?>> Transformer<T, T> convert() {
         return observable -> observable.onBackpressureDrop()
                 .subscribeOn(jobScheduler)
-                .retryWhen(RxRestApiFunctions.networkNoAvailableRetry(observable, manager));
+                .retryWhen(RxRestApiFunctions.networkNotAvailableRetry(observable, manager));
     }
 }

@@ -3,6 +3,7 @@ package com.gorevev.testapplication.presentation.splash;
 import android.text.TextUtils;
 
 import com.arellomobile.mvp.InjectViewState;
+import com.gorevev.testapplication.infrastructure.exceptions.ErrorResolver;
 import com.gorevev.testapplication.infrastructure.storages.TokenStorage;
 import com.gorevev.testapplication.presentation._common.BasePresenter;
 
@@ -18,10 +19,10 @@ public class SplashPresenter extends BasePresenter<ISplashView, ISplashRouter> {
     private final TokenStorage storage;
 
     @Inject
-    SplashPresenter(ISplashRouter router, TokenStorage storage) {
+    SplashPresenter(ISplashRouter router, TokenStorage storage, ErrorResolver errorResolver) {
+        super(router, errorResolver);
 
         this.storage = storage;
-        this.setRouter(router);
     }
 
     @Override

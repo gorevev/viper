@@ -1,4 +1,4 @@
-package com.gorevev.testapplication.infrastructure.exception;
+package com.gorevev.testapplication.infrastructure.exceptions;
 
 import com.gorevev.testapplication.domain._common.entities.ErrorResponse;
 

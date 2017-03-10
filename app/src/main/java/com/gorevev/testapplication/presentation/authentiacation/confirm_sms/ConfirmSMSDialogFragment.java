@@ -1,5 +1,6 @@
 package com.gorevev.testapplication.presentation.authentiacation.confirm_sms;
 
+import android.support.annotation.StringRes;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.widget.AppCompatButton;
@@ -54,8 +55,13 @@ public class ConfirmSMSDialogFragment extends BaseDialogFragment implements ICon
     }
 
     @Override
-    public void showError(Throwable throwable) {
+    public void showSnackbar(Throwable throwable) {
         Snackbar.make(getView(), throwable.getMessage(), Snackbar.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showSnackbar(@StringRes int id) {
+        Snackbar.make(getView(), getString(id), Snackbar.LENGTH_SHORT).show();
     }
 
     @Override

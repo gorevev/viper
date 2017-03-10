@@ -48,7 +48,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:clickable="true"
-        android:visibility="visible"
+        android:visibility="gone"
         android:background="@color/progress_background">
 
         <ProgressBar

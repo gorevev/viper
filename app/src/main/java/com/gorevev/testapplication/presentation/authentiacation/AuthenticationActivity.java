@@ -3,6 +3,7 @@ package com.gorevev.testapplication.presentation.authentiacation;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 
 import com.gorevev.testapplication.R;
 import com.gorevev.testapplication.infrastructure.App;
@@ -20,7 +21,14 @@ public class AuthenticationActivity extends BaseActivity {
     }
 
     public static Intent createIntent(Context context) {
-        return new Intent(context, AuthenticationActivity.class);
+        return createIntent(context, null);
+    }
+
+    public static Intent createIntent(Context context, @Nullable String screen) {
+        if (screen == null)
+            return new Intent(context, AuthenticationActivity.class).putExtra(AuthTransitions.class.getSimpleName(), AuthTransitions.START_PAGE);
+        else
+            return new Intent(context, AuthenticationActivity.class).putExtra(AuthTransitions.class.getSimpleName(), screen);
     }
 
     @Override
@@ -29,9 +37,7 @@ public class AuthenticationActivity extends BaseActivity {
 
         App.getInstance().getAuthenticationComponent().inject(this);
 
-        //TODO make switching between start page and login on start context
-        if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
-            router.replaceScreen(AuthTransitions.START_PAGE);
-        }
+        if (getSupportFragmentManager().getBackStackEntryCount() == 0)
+            router.replaceScreen(getIntent().getStringExtra(AuthTransitions.class.getSimpleName()));
     }
 }

@@ -1,5 +1,7 @@
 package com.gorevev.testapplication.presentation._common;
 
+import android.support.annotation.StringRes;
+
 import com.arellomobile.mvp.MvpView;
 
 /**
@@ -7,5 +9,7 @@ import com.arellomobile.mvp.MvpView;
  */
 
 public interface IBaseView extends MvpView {
-    void showError(Throwable throwable);
+    void showSnackbar(Throwable throwable);
+
+    void showSnackbar(@StringRes int id);
 }

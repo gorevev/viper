@@ -3,6 +3,7 @@ package com.gorevev.testapplication.presentation.main.orders;
 import com.arellomobile.mvp.InjectViewState;
 import com.gorevev.testapplication.domain.order.GetOrdersInteractor;
 import com.gorevev.testapplication.domain.order.entities.OrdersList;
+import com.gorevev.testapplication.infrastructure.exceptions.ErrorResolver;
 import com.gorevev.testapplication.presentation._common.BasePresenter;
 
 import java.util.HashMap;
@@ -24,8 +25,8 @@ public class OrdersPresenter extends BasePresenter<IOrdersView, IOrdersRouter> i
     int page = 0;
 
     @Inject
-    public OrdersPresenter(IOrdersRouter router, GetOrdersInteractor getOrdersInteractor) {
-        this.setRouter(router);
+    public OrdersPresenter(IOrdersRouter router, GetOrdersInteractor getOrdersInteractor, ErrorResolver errorResolver) {
+        super(router, errorResolver);
         this.getOrdersInteractor = getOrdersInteractor;
     }
 

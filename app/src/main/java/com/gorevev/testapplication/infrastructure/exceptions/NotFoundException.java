@@ -1,4 +1,4 @@
-package com.gorevev.testapplication.infrastructure.exception;
+package com.gorevev.testapplication.infrastructure.exceptions;
 
 /**
  * Created by denischuvasov on 20.02.17.

@@ -1,4 +1,4 @@
-package com.gorevev.testapplication.infrastructure.exception;
+package com.gorevev.testapplication.infrastructure.exceptions;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

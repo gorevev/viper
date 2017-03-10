@@ -25,6 +25,7 @@ import dagger.Component;
         NetworkModule.class,
         APIModule.class,
         NavigationModule.class,
+        ErrorHandleModule.class,
         DomainModule.class
 })
 public interface AppComponent {

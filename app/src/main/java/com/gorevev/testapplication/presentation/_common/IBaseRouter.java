@@ -7,4 +7,6 @@ package com.gorevev.testapplication.presentation._common;
 public interface IBaseRouter {
 
     void back();
+
+    void showLogin();
 }

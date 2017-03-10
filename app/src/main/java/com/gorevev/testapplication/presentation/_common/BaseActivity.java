@@ -1,6 +1,8 @@
 package com.gorevev.testapplication.presentation._common;
 
 import android.os.Bundle;
+import android.support.annotation.StringRes;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 
@@ -76,5 +78,13 @@ public abstract class BaseActivity extends MvpAppCompatActivity {
                 || !((IBackButtonListener) fragment).onBackPressed()) {
                     super.onBackPressed();
                 }
+    }
+
+    public void showSnackbar(Throwable throwable) {
+        Snackbar.make(getWindow().getDecorView().getRootView(), throwable.getMessage(), Snackbar.LENGTH_LONG).show();
+    }
+
+    public void showSnackbar(@StringRes int id) {
+        Snackbar.make(getWindow().getDecorView().getRootView(), getString(id), Snackbar.LENGTH_LONG).show();
     }
 }

@@ -7,6 +7,7 @@ import com.gorevev.testapplication.domain.user.ConfirmSMSInteractor;
 import com.gorevev.testapplication.domain.user.ResendSMSInteractor;
 import com.gorevev.testapplication.domain.user.StopWatchInteractor;
 import com.gorevev.testapplication.domain.user.entities.SmsConfirmationCode;
+import com.gorevev.testapplication.infrastructure.exceptions.ErrorResolver;
 import com.gorevev.testapplication.presentation._common.BasePresenter;
 
 import javax.inject.Inject;
@@ -21,19 +22,22 @@ public class ConfirmSMSPresenter extends BasePresenter<IConfirmSMSView, IConfirm
     private static final String TAG = "ConfirmSMSPresenter";
     private static final int DELAY = 5;
 
-    private final ConfirmSMSInteractor interactor;
+    private final ConfirmSMSInteractor confirmSMSInteractor;
     private final ResendSMSInteractor resendSMSInteractor;
     private final StopWatchInteractor stopwatchInteractor;
 
     @Inject
     public ConfirmSMSPresenter(IConfirmSMSRouter router,
-                               ConfirmSMSInteractor interactor,
+                               ConfirmSMSInteractor confirmSMSInteractor,
                                ResendSMSInteractor resendSMSInteractor,
-                               StopWatchInteractor stopwatchInteractor) {
-        this.interactor = interactor;
+                               StopWatchInteractor stopwatchInteractor,
+                               ErrorResolver errorResolver) {
+        super(router, errorResolver);
+
+        this.confirmSMSInteractor = confirmSMSInteractor;
         this.resendSMSInteractor = resendSMSInteractor;
         this.stopwatchInteractor = stopwatchInteractor;
-        setRouter(router);
+
         resendConfirmCode();
         startTimer();
     }
@@ -43,7 +47,7 @@ public class ConfirmSMSPresenter extends BasePresenter<IConfirmSMSView, IConfirm
                 .subscribe(response -> {
                     startTimer();
                 }, throwable -> {
-                    getViewState().showError(throwable);
+                    getViewState().showSnackbar(throwable);
                 });
     }
 
@@ -70,12 +74,12 @@ public class ConfirmSMSPresenter extends BasePresenter<IConfirmSMSView, IConfirm
     }
 
     public void confirmCode(String code) {
-        interactor.execute(new SmsConfirmationCode(code))
+        confirmSMSInteractor.execute(new SmsConfirmationCode(code))
                 .subscribe(response -> {
                             router.showMainScreen();
                         },
                         throwable -> {
-                            getViewState().showError(throwable);
+                            getViewState().showSnackbar(throwable);
                         });
     }
 
@@ -87,7 +91,7 @@ public class ConfirmSMSPresenter extends BasePresenter<IConfirmSMSView, IConfirm
     public void onDestroy() {
         super.onDestroy();
         stopwatchInteractor.unsubscribe();
-        interactor.unsubscribe();
+        confirmSMSInteractor.unsubscribe();
         resendSMSInteractor.unsubscribe();
     }
 }

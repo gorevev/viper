@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 
 import com.gorevev.testapplication.presentation._common.BaseNavigator;
+import com.gorevev.testapplication.presentation._common.DefaultNavigator;
 import com.gorevev.testapplication.presentation.authentiacation.AuthenticationActivity;
 import com.gorevev.testapplication.presentation.main.orders.OrdersFragment;
 import com.gorevev.testapplication.presentation.order_details.OrderDetailsActivity;
@@ -15,7 +16,7 @@ import com.gorevev.testapplication.presentation.order_details.OrderDetailsActivi
  * Created by denischuvasov on 10.02.17.
  */
 
-public class MainNavigator extends BaseNavigator {
+public class MainNavigator extends DefaultNavigator {
 
     public MainNavigator(AppCompatActivity activity, @IdRes int container) {
         super(activity, container);
@@ -23,14 +24,15 @@ public class MainNavigator extends BaseNavigator {
 
     @Override
     protected Intent createIntent(Context context, String screenName, Object transferData) {
-        //TODO show order details
+
         switch (screenName) {
             case MainTransitions.AUTHENTICATION_SCREEN:
                 return AuthenticationActivity.createIntent(context);
             case MainTransitions.ORDER_DETAILS_SCREEN:
                 return OrderDetailsActivity.createIntent(context, (Integer) transferData);
         }
-        return null;
+
+        return super.createIntent(context, screenName, transferData);
     }
 
     @Override

@@ -18,6 +18,7 @@ import ru.terrakok.cicerone.commands.Replace;
 
 public abstract class BaseNavigator extends SupportFragmentNavigator {
     private static final String TAG = "BaseNavigator";
+
     private AppCompatActivity activity;
 
     public BaseNavigator(AppCompatActivity activity, int containerId) {

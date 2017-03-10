@@ -3,8 +3,9 @@ package com.gorevev.testapplication.presentation.authentiacation.login;
 import com.arellomobile.mvp.InjectViewState;
 import com.gorevev.testapplication.domain.user.LoginInteractor;
 import com.gorevev.testapplication.domain.user.entities.LoginParams;
-import com.gorevev.testapplication.infrastructure.exception.UnauthenticatedException;
+import com.gorevev.testapplication.infrastructure.exceptions.ErrorResolver;
 import com.gorevev.testapplication.presentation._common.BasePresenter;
+import com.gorevev.testapplication.presentation.authentiacation.login.error_handlers.LoginUnauthenticatedExceptionHandler;
 
 import javax.inject.Inject;
 
@@ -18,10 +19,11 @@ public class LoginPresenter extends BasePresenter<ILoginView, ILoginRouter> {
     LoginInteractor loginInteractor;
 
     @Inject
-    public LoginPresenter(ILoginRouter router, LoginInteractor loginInteractor) {
-
-        this.setRouter(router);
+    public LoginPresenter(ILoginRouter router, LoginInteractor loginInteractor, ErrorResolver errorResolver) {
+        super(router, errorResolver);
         this.loginInteractor = loginInteractor;
+
+        getErrorResolver().putHandler(new LoginUnauthenticatedExceptionHandler());
     }
 
     public void login(String login, String password) {
@@ -49,14 +51,5 @@ public class LoginPresenter extends BasePresenter<ILoginView, ILoginRouter> {
 
     public void showRegistration() {
         router.showRegistration();
-    }
-
-    @Override
-    protected void handleError(Throwable throwable) {
-        if(throwable instanceof UnauthenticatedException) {
-            getViewState().showUnauthenticatedError();
-        } else {
-            super.handleError(throwable);
-        }
     }
 }

@@ -1,5 +1,6 @@
 package com.gorevev.testapplication.presentation.authentiacation;
 
+import com.gorevev.testapplication.presentation._common.BaseRouter;
 import com.gorevev.testapplication.presentation.authentiacation.confirm_sms.IConfirmSMSRouter;
 import com.gorevev.testapplication.presentation.authentiacation.login.ILoginRouter;
 import com.gorevev.testapplication.presentation.authentiacation.registration.IRegistrationRouter;
@@ -13,37 +14,30 @@ import ru.terrakok.cicerone.Router;
  * Created by e.gorev on 30.01.2017.
  */
 
-public class AuthenticationRouter implements IStartPageRouter, ILoginRouter, IRegistrationRouter, IConfirmSMSRouter {
-
-    private Router router;
+public class AuthenticationRouter extends BaseRouter implements IStartPageRouter, ILoginRouter, IRegistrationRouter, IConfirmSMSRouter {
 
     @Inject
     public AuthenticationRouter(Router router) {
-        this.router = router;
+        super(router);
     }
 
     @Override
     public void showLogin() {
-        router.navigateTo(AuthTransitions.LOGIN);
+        getRouter().navigateTo(AuthTransitions.LOGIN);
     }
 
     @Override
     public void showRegistration() {
-        router.navigateTo(AuthTransitions.REGISTRATION);
+        getRouter().navigateTo(AuthTransitions.REGISTRATION);
     }
 
     @Override
     public void showMainScreen() {
-        router.replaceScreen(AuthTransitions.MAIN_SCREEN);
-    }
-
-    @Override
-    public void back() {
-        router.exit();
+        getRouter().replaceScreen(AuthTransitions.MAIN_SCREEN);
     }
 
     @Override
     public void showConfirmSmsDialog() {
-        router.navigateTo(AuthTransitions.SMS_CONFIRM);
+        getRouter().navigateTo(AuthTransitions.SMS_CONFIRM);
     }
 }

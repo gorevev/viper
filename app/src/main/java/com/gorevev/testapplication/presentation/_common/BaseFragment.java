@@ -1,14 +1,15 @@
 package com.gorevev.testapplication.presentation._common;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.StringRes;
 import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
-import com.gorevev.testapplication.presentation._common.resolution.IThrowableResolver;
-import com.gorevev.testapplication.presentation._common.resolution.ThrowableResolver;
 import com.gorevev.testapplication.utils.Logger;
 
 import java.lang.annotation.Annotation;
@@ -16,11 +17,9 @@ import java.lang.annotation.Annotation;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public abstract class BaseFragment extends MvpAppCompatFragment implements IBackButtonListener {
+public abstract class BaseFragment extends MvpAppCompatFragment implements IBackButtonListener, IBaseView {
 
     protected Unbinder unbinder;
-
-    private IThrowableResolver resolver = new ThrowableResolver();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -70,11 +69,20 @@ public abstract class BaseFragment extends MvpAppCompatFragment implements IBack
         return getClass().getSimpleName();
     }
 
-    public IThrowableResolver getThrowableResolver() {
-        return resolver;
+    public void showSnackbar(Throwable throwable) {
+        Snackbar.make(getView(), throwable.getMessage(), Snackbar.LENGTH_LONG).show();
     }
 
-    public void showSnackbar(String message) {
-        Snackbar.make(getView(), message, Snackbar.LENGTH_LONG);
+    @Override
+    public void showSnackbar(@StringRes int id) {
+        Snackbar.make(getView(), getString(id), Snackbar.LENGTH_LONG).show();
+    }
+
+    protected void hideKeyboard() {
+        View view = getActivity().getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 }

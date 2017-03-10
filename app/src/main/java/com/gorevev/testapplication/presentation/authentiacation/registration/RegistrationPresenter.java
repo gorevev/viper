@@ -3,6 +3,7 @@ package com.gorevev.testapplication.presentation.authentiacation.registration;
 import com.arellomobile.mvp.InjectViewState;
 import com.gorevev.testapplication.domain.user.RegistrationInteractor;
 import com.gorevev.testapplication.domain.user.entities.RegUserParams;
+import com.gorevev.testapplication.infrastructure.exceptions.ErrorResolver;
 import com.gorevev.testapplication.presentation._common.BasePresenter;
 
 import javax.inject.Inject;
@@ -18,9 +19,9 @@ public class RegistrationPresenter extends BasePresenter<IRegistrationView, IReg
     private final RegistrationInteractor interactor;
 
     @Inject
-    public RegistrationPresenter(IRegistrationRouter router, RegistrationInteractor interactor) {
+    public RegistrationPresenter(IRegistrationRouter router, RegistrationInteractor interactor, ErrorResolver errorResolver) {
+        super(router, errorResolver);
         this.interactor = interactor;
-        setRouter(router);
     }
 
     public void registration(RegUserParams regUserParams) {
@@ -33,7 +34,7 @@ public class RegistrationPresenter extends BasePresenter<IRegistrationView, IReg
                         },
                         throwable -> {
                             getViewState().hideProgress();
-                            getViewState().showError(throwable);
+                            getViewState().showSnackbar(throwable);
                         }
                 );
     }

@@ -37,7 +37,6 @@ public class LoginFragment extends BaseFragment implements ILoginView {
     @ProvidePresenter
     LoginPresenter providePresenter() {
         LoginPresenter presenter =  App.getInstance().getAuthenticationComponent().loginPresenter();
-        presenter.setThrowableResolver(getThrowableResolver());
         return presenter;
     }
 
@@ -73,18 +72,9 @@ public class LoginFragment extends BaseFragment implements ILoginView {
         Toast.makeText(getActivity(), "Logged in", Toast.LENGTH_LONG).show();
     }
 
-    @Override
-    public void showError(String message) {
-        Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
-    }
-
-    @Override
-    public void showUnauthenticatedError() {
-        Snackbar.make(getView(), getString(R.string.login_unauthenticated_exception), Snackbar.LENGTH_LONG);
-    }
-
     @OnClick(R.id.button_login)
     public void onLogin() {
+        hideKeyboard();
         presenter.login(login.getText().toString(), password.getText().toString());
     }
 

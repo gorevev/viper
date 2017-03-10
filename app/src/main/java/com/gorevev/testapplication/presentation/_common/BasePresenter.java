@@ -1,21 +1,25 @@
 package com.gorevev.testapplication.presentation._common;
 
 import com.arellomobile.mvp.MvpPresenter;
-import com.arellomobile.mvp.MvpView;
+import com.gorevev.testapplication.infrastructure.exceptions.ErrorResolver;
 
-import com.gorevev.testapplication.presentation._common.resolution.IThrowableResolver;
+import javax.inject.Inject;
 
-public abstract class BasePresenter<View extends MvpView, Router extends IBaseRouter> extends MvpPresenter<View> {
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public abstract class BasePresenter<View extends IBaseView, Router extends IBaseRouter> extends MvpPresenter<View> {
 
     protected Router router;
-    private IThrowableResolver resolver;
 
-    public void setRouter(Router router) {
+    @Inject
+    public ErrorResolver errorResolver;
+
+    public BasePresenter(Router router, ErrorResolver errorResolver) {
         this.router = router;
-    }
-
-    public Router getRouter() {
-        return router;
+        this.errorResolver = errorResolver;
     }
 
     public void onBackPressed() {
@@ -23,11 +27,7 @@ public abstract class BasePresenter<View extends MvpView, Router extends IBaseRo
     }
 
     protected void handleError(Throwable throwable) {
-        if(resolver != null)
-            resolver.handleError(throwable);
-    }
-
-    public void setThrowableResolver(IThrowableResolver resolver) {
-        this.resolver = resolver;
+        if (errorResolver != null && !errorResolver.handleError(throwable, getViewState(), getRouter()))
+            getViewState().showSnackbar(throwable);
     }
 }

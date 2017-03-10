@@ -73,11 +73,6 @@ public class RegistrationFragment extends BaseFragment implements IRegistrationV
     }
 
     @Override
-    public void showError(Throwable throwable) {
-        Snackbar.make(getView(), throwable.getMessage(), Snackbar.LENGTH_SHORT).show();
-    }
-
-    @Override
     public void showProgress() {
         btnRegistration.setEnabled(false);
     }
